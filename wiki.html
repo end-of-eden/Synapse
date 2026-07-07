@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<link rel="preload" as="image" href="https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Eden_1.jpg">
-<link rel="preload" as="image" href="https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Lilith_1.jpg">
+<link rel="preload" as="image" href="https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Syndrome_1.jpg">
+<link rel="preload" as="image" href="https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Seraph_1.jpg">
 <meta charset="UTF-8">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩵</text></svg>">  
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>">  
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>END OF EDEN</title>
+<title>Synapse</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
 <link rel="stylesheet" href="style.css">
@@ -184,12 +184,12 @@ body {
 .team-dot { width: 5px; height: 5px; border-radius: 99px; background: var(--color-border-secondary); transition: background 0.2s; }
 .team-dot.active { background: var(--color-text-secondary); }
 
-.theme-eden .char-badge { background: rgba(46,204,113,0.22); color: #7fe8ac; }
-.theme-eden .attr-tag { background: rgba(22,163,74,0.12); color: #1a8a4d; }
-.theme-eden .wiki-title { color: #1a8a4d; }
-.theme-lilith .char-badge { background: rgba(242,168,196,0.22); color: #ffc2dc; }
-.theme-lilith .attr-tag { background: rgba(92,138,82,0.14); color: #4f8a45; }
-.theme-lilith .wiki-title { color: #c94f7c; }
+.theme-syndrome .char-badge { background: rgba(231,76,60,0.25); color: #ff8a75; }
+.theme-syndrome .attr-tag { background: rgba(192,57,43,0.12); color: #c0392b; }
+.theme-syndrome .wiki-title { color: #c0392b; }
+.theme-seraph .char-badge { background: rgba(241,196,15,0.28); color: #ffe066; }
+.theme-seraph .attr-tag { background: rgba(166,124,0,0.14); color: #a67c00; }
+.theme-seraph .wiki-title { color: #a67c00; }
 
 /* 속성별 색상 (공식 팔레트) */
 .member-attr[data-attr="Pyre"]    { background: #e74c3c; color: #ffffff; }
@@ -219,21 +219,21 @@ body {
   </div>
 </nav>
 
-<div class="wiki-wrap theme-eden" id="wiki">
+<div class="wiki-wrap theme-syndrome" id="wiki">
   <div class="standing-panel">
     <div class="standing-img">
-      <img id="standing-img-el" src="https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Eden_1.jpg" alt="standing" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
+      <img id="standing-img-el" src="https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Syndrome_1.jpg" alt="standing" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
     </div>
     <div class="char-badge" id="char-badge">S-Class Guide</div>
-    <div class="char-name-panel" id="char-name-panel">Eden</div>
-    <div class="char-codename" id="char-codename">에덴</div>
+    <div class="char-name-panel" id="char-name-panel">Syndrome</div>
+    <div class="char-codename" id="char-codename">신드롬</div>
   </div>
   <div class="wiki-panel">
     <div class="wiki-header">
-      <div class="wiki-title" id="wiki-title">Eden</div>
+      <div class="wiki-title" id="wiki-title">Syndrome</div>
       <div class="heart-switcher">
-        <button class="heart-btn active" id="btn-eden" onclick="switchTo('eden')" aria-label="에덴으로 전환">🩵</button>
-        <button class="heart-btn" id="btn-lilith" onclick="switchTo('lilith')" aria-label="릴리스로 전환">🩷</button>
+        <button class="heart-btn active" id="btn-syndrome" onclick="switchTo('syndrome')" aria-label="신드롬으로 전환">❤️</button>
+        <button class="heart-btn" id="btn-seraph" onclick="switchTo('seraph')" aria-label="세라프로 전환">💛</button>
       </div>
     </div>
     <div class="scroll-area" id="scroll-area">
@@ -283,11 +283,11 @@ function toggleMusic() {
     localStorage.setItem('bgm-time', audio.currentTime);
   });
 })();
-var current = 'eden';
+var current = 'syndrome';
 
 var STANDING_IMG = {
-  eden: 'https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Eden_1.jpg',
-  lilith: 'https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Lilith_1.jpg'
+  syndrome: 'https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Syndrome_1.jpg',
+  seraph: 'https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Seraph_1.jpg'
 };
 // 전환 클릭 시점에 이미 캐시돼 있도록 두 스탠딩 이미지를 미리 받아둠 (밀림현상 방지)
 Object.keys(STANDING_IMG).forEach(function (k) {
@@ -300,22 +300,56 @@ var rst = [
   { name: '휴고', attr: 'Pyre', desc: 'S급 불 속성 가이드. RST 소속.', img: 'https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/HUGO.png' },
   { name: '카르마', attr: 'Fulmen', desc: 'S급 번개 속성 가이드. RST 소속.', img: 'https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/KARMA.png' },
   { name: '저스티스', attr: 'Aqua', desc: 'S급 물 속성 가이드. RST 소속.', img: 'https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/JUSTICE.png' },
+  { name: '에덴', attr: 'Aero', desc: 'S급 바람 속성 가이드. RST 소속.', img: 'https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/EDEN.png' },
 ];
 var vanguard2 = [
   { name: '리암', attr: 'Glacies', desc: '뱅가드 2팀 소속. 얼음 속성 센티넬.', img: 'https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/LIAM.png' },
-  { name: '신드롬', attr: 'Pyre', desc: '뱅가드 2팀 소속. 불 속성 센티넬.', img: 'https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/SYNDROME.png' },
+  { name: '릴리스', attr: 'Verde', desc: '뱅가드 2팀 소속. 풀 속성 센티넬.', img: 'https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/LILITH.png' },
   { name: '바이브', attr: 'Aero', desc: '뱅가드 2팀 소속. 바람 속성 센티넬.', img: 'https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/VIBE.png' },
 ];
 
 var data = {
-  eden: {
-    theme: 'theme-eden', badge: 'S-Class Guide',
-    name: 'Eden', codename: '에덴',
-    attrIcon: 'ti-wind', attrLabel: 'Aero',
+  syndrome: {
+    theme: 'theme-syndrome', badge: 'S-Class Sentinel',
+    name: 'Syndrome', codename: '신드롬',
+    attrIcon: 'ti-flame', attrLabel: 'Pyre',
+    infos: [
+      { label: 'Age', value: '27세' },
+      { label: 'Nationality', value: '한국' },
+      { label: 'Height', value: '166cm' },
+      { label: 'Unit', value: 'Vanguard 2' },
+      { label: 'Rank', value: 'S-Class Sentinel' },
+      { label: 'Attribute', value: 'Pyre' },
+    ],
+    eval: 'ARCH 내외에서 아이돌급 외모로 주목받는 최고의 미녀 센티넬. 겉으로는 나른하고 태평해 보이지만 실상은 계산이 빠르고 눈치가 좋다. 세라프와의 강제 각인 이후, 공식 기록상 가장 많은 징계 보고서가 작성된 파트너 조합.',
+    personality: '타인의 시선이나 평가에 크게 신경 쓰지 않는 듯 보이나, 그 무심함은 철저히 만들어진 것이다. 스스로를 낮게 평가하면서도 그것을 드러내지 않고 화려한 외면으로 포장한다. 상대를 휘두르는 데 능하며, 필요하다면 애교도 쓰고 독설도 서슴지 않는다. 가이드를 가리지 않고 가이딩을 받는다는 탓에 헤프다는 소문이 있다.',
+    abilities: [
+      { label: '아이러니한 흑장미 (The Ironic Black Rose)', desc: 'ARCH 본부 내 제압 임무 성공률 최상위권의 S급 센티넬. 겉으로는 나른하고 무해해 보이지만, 전투가 시작되는 순간 완전히 다른 얼굴을 드러낸다. 독과 속박에 특화된 검은 장미와 가시덩굴의 능력은 아름다운 외모만큼이나 치명적이다. 세라프와의 매칭률 98%.' },
+      { label: '[Passive] Pink Venom', desc: '풀 속성 파장이 피부 표면에 상시 발현되는 S급 센티넬 고유의 패시브 능력. 체향처럼 번지는 연분홍빛 독소가 근접한 대상의 감각을 서서히 교란시키며, 능력이 활성화될수록 눈동자가 형광빛으로 물들어간다. 본인은 이를 의식적으로 제어하지 않는다.' },
+      { label: '[Active] Rosa Overdose', desc: '가시덩굴로 대상을 완전히 봉쇄한 뒤, 검은 장미가 일제히 개화하며 고농도 독성 꽃가루를 폭발적으로 방출한다. 흡입된 꽃가루는 Verde 파장을 타고 신경계 전반에 침투, 근육 이완과 감각 차단을 순차적으로 유발한다. 발동 시 신드롬의 눈동자가 형광 분홍빛으로 완전히 발광한다.' },
+    ],
+    notes: [
+      'ARCH 내부 별명 "아이돌". 바이브와 어울리는 모습이 자주 목격된다.',
+      '식물 속성이지만 회복보다 독과 속박에 특화되어 있다.',
+    ],
+    visual: [
+      { label: '신장/체격', value: '166cm. 군더더기 없이 날렵한 체형에 또렷한 이목구비.' },
+      { label: '주요 특징', value: '허리까지 내려오는 윤기 나는 흑발, 연분홍빛 눈동자 (능력 사용 시 형광빛으로 빛남). 날카롭게 올라간 눈매와 고양이를 닮은 인상으로 첫인상은 차갑고 도도하다는 평이 많다. 유난히 희고 깨끗한 피부.' },
+      { label: '복장', value: '몸에 밀착되는 까만 제복, 검은 시스루 스타킹, 오른쪽 허벅지 가터벨트. 전투 시 흰 장갑과 전술 코트 추가.' },
+    ],
+    tmi: [],
+    log: '',
+    teamLabel: 'Vanguard 2',
+    team: vanguard2,
+  },
+  seraph: {
+    theme: 'theme-seraph', badge: 'S-Class Guide',
+    name: 'Seraph', codename: '세라프',
+    attrIcon: 'ti-bolt', attrLabel: 'Fulmen',
     infos: [
       { label: 'Age', value: '28세' }, { label: 'Nationality', value: '한국' },
       { label: 'Height', value: '184cm' }, { label: 'Unit', value: 'R.S.T.' },
-      { label: 'Rank', value: 'S-Class Guide' }, { label: 'Attribute', value: 'Aero' },
+      { label: 'Rank', value: 'S-Class Guide' }, { label: 'Attribute', value: 'Fulmen' },
     ],
     eval: '전직 올림픽 금메달리스트. S급 바람 속성 가이드로 분류되나, 파트너 배정을 전면 거부하고 긴급 제압팀(R.S.T.)의 해결사로만 활동. 센티넬을 결함품으로 간주하며 극도의 비협조적 태도를 보인다.',
     personality: '차갑고 무심한 외면 뒤에 깊은 공허함이 자리한다. 세상 모든 것이 지루하며 총을 쏘는 순간만이 유일하게 살아있는 기분을 준다.',
@@ -335,42 +369,9 @@ var data = {
       { label: '체질', value: '바람 속성 각성으로 체질이 대기의 기류와 동기화되어 미세한 손떨림(신경 진동)을 얻게 됨. 흡연은 이 감각을 억누르고 집중력을 다스리기 위해 시작.' },
       { label: '골초', value: '하루에 두 갑 이상 피우는 엄청난 골초. 단맛이 전혀 없는, 폐가 시릴 정도의 드라이 멘솔 계열만 고집한다. 담배가 떨어지면 금단현상으로 신경과민이 심해짐.' },
     ],
-    log: '코드네임 \'에덴\'은 자유로웠다. 하모니 부서의 긴급 제압팀(R.S.T.)이라는 소속은, 파트너라는 족쇄 없이 합법적으로 총을 쏠 수 있는 완벽한 면죄부였다.\n\n전직 금메달리스트. S급 가이드. 그는 이 모든 화려한 타이틀이 그저 귀찮았고, 세상 모든 것이 권태로웠다. 그가 유일하게 지루함을 잊는 순간은, 폭주하는 센티넬의 머리통에 특수탄을 박아 넣는, 그 찰나의 순간뿐이었다.\n\n그날도 딱 그런 귀찮은 임무 중 하나였다. 폐허에 고립되어 죽어가던 센티넬 릴리스. 온 사방을 뒤지느라 잔뜩 심기가 불편해진 그는, 마침내 무너진 건물 잔해 속에서 당신을 발견했다. 탕-! 총성은 정확했고, 당신은 그대로 무너졌다. 그는 담배 연기를 뿜으며 다가와, 그 권태로운 표정으로 한마디를 툭 던졌다.\n\n"...찾았네."\n\n그는 규정상 필요한 최소한의 임시 가이딩을 실행했을 뿐이다. ...그의 인생에서 가장 재수 없는 실수가 될 줄도 모르고. 그 단 한 번의 접촉이 각인 현상을 일으켰다. 이제 릴리스는, 에덴 외의 그 어떤 가이드에게서도 가이딩을 받을 수 없는 몸이 되었다. 그리고 에덴은, 자신이 가장 저열하고 귀찮게 여겼던 센티넬이라는 존재에게... 평생 발목이 잡힌 신세가 되었다. 그의 자유로운 솔로 라이프는, 그렇게 끝났다.',
+    log: '코드네임 \'세라프\'는 자유로웠다. 하모니 부서의 긴급 제압팀(R.S.T.)이라는 소속은, 파트너라는 족쇄 없이 합법적으로 총을 쏠 수 있는 완벽한 면죄부였다.\n\n전직 금메달리스트. S급 가이드. 그는 이 모든 화려한 타이틀이 그저 귀찮았고, 세상 모든 것이 권태로웠다. 그가 유일하게 지루함을 잊는 순간은, 폭주하는 센티넬의 머리통에 특수탄을 박아 넣는, 그 찰나의 순간뿐이었다.\n\n그날도 딱 그런 귀찮은 임무 중 하나였다. 폐허에 고립되어 죽어가던 센티넬 신드롬. 온 사방을 뒤지느라 잔뜩 심기가 불편해진 그는, 마침내 무너진 건물 잔해 속에서 당신을 발견했다. 탕-! 총성은 정확했고, 당신은 그대로 무너졌다. 그는 담배 연기를 뿜으며 다가와, 그 권태로운 표정으로 한마디를 툭 던졌다.\n\n"...찾았네."\n\n그는 규정상 필요한 최소한의 임시 가이딩을 실행했을 뿐이다. ...그의 인생에서 가장 재수 없는 실수가 될 줄도 모르고. 그 단 한 번의 접촉이 각인 현상을 일으켰다. 이제 신드롬은, 세라프 외의 그 어떤 가이드에게서도 가이딩을 받을 수 없는 몸이 되었다. 그리고 세라프는, 자신이 가장 저열하고 귀찮게 여겼던 센티넬이라는 존재에게... 평생 발목이 잡힌 신세가 되었다. 그의 자유로운 솔로 라이프는, 그렇게 끝났다.',
     teamLabel: 'R.S.T. — Rampage Suppression Team',
     team: rst,
-  },
-  lilith: {
-    theme: 'theme-lilith', badge: 'S-Class Sentinel',
-    name: 'Lilith', codename: '릴리스',
-    attrIcon: 'ti-leaf', attrLabel: 'Verde',
-    infos: [
-      { label: 'Age', value: '27세' },
-      { label: 'Nationality', value: '한국' },
-      { label: 'Height', value: '166cm' },
-      { label: 'Unit', value: 'Vanguard 2' },
-      { label: 'Rank', value: 'S-Class Sentinel' },
-      { label: 'Attribute', value: 'Verde' },
-    ],
-    eval: 'ARCH 내외에서 아이돌급 외모로 주목받는 최고의 미녀 센티넬. 겉으로는 나른하고 태평해 보이지만 실상은 계산이 빠르고 눈치가 좋다. 에덴과의 강제 각인 이후, 공식 기록상 가장 많은 징계 보고서가 작성된 파트너 조합.',
-    personality: '타인의 시선이나 평가에 크게 신경 쓰지 않는 듯 보이나, 그 무심함은 철저히 만들어진 것이다. 스스로를 낮게 평가하면서도 그것을 드러내지 않고 화려한 외면으로 포장한다. 상대를 휘두르는 데 능하며, 필요하다면 애교도 쓰고 독설도 서슴지 않는다. 가이드를 가리지 않고 가이딩을 받는다는 탓에 헤프다는 소문이 있다.',
-    abilities: [
-      { label: '아이러니한 흑장미 (The Ironic Black Rose)', desc: 'ARCH 본부 내 제압 임무 성공률 최상위권의 S급 센티넬. 겉으로는 나른하고 무해해 보이지만, 전투가 시작되는 순간 완전히 다른 얼굴을 드러낸다. 독과 속박에 특화된 검은 장미와 가시덩굴의 능력은 아름다운 외모만큼이나 치명적이다. 에덴과의 매칭률 98%.' },
-      { label: '[Passive] Pink Venom', desc: '풀 속성 파장이 피부 표면에 상시 발현되는 S급 센티넬 고유의 패시브 능력. 체향처럼 번지는 연분홍빛 독소가 근접한 대상의 감각을 서서히 교란시키며, 능력이 활성화될수록 눈동자가 형광빛으로 물들어간다. 본인은 이를 의식적으로 제어하지 않는다.' },
-      { label: '[Active] Rosa Overdose', desc: '가시덩굴로 대상을 완전히 봉쇄한 뒤, 검은 장미가 일제히 개화하며 고농도 독성 꽃가루를 폭발적으로 방출한다. 흡입된 꽃가루는 Verde 파장을 타고 신경계 전반에 침투, 근육 이완과 감각 차단을 순차적으로 유발한다. 발동 시 릴리스의 눈동자가 형광 분홍빛으로 완전히 발광한다.' },
-    ],
-    notes: [
-      'ARCH 내부 별명 "아이돌". 신드롬과 어울리는 모습이 자주 목격된다.',
-      '식물 속성이지만 회복보다 독과 속박에 특화되어 있다.',
-    ],
-    visual: [
-      { label: '신장/체격', value: '166cm. 군더더기 없이 날렵한 체형에 또렷한 이목구비.' },
-      { label: '주요 특징', value: '허리까지 내려오는 윤기 나는 흑발, 연분홍빛 눈동자 (능력 사용 시 형광빛으로 빛남). 날카롭게 올라간 눈매와 고양이를 닮은 인상으로 첫인상은 차갑고 도도하다는 평이 많다. 유난히 희고 깨끗한 피부.' },
-      { label: '복장', value: '몸에 밀착되는 까만 제복, 검은 시스루 스타킹, 오른쪽 허벅지 가터벨트. 전투 시 흰 장갑과 전술 코트 추가.' },
-    ],
-    tmi: [],
-    log: '',
-    teamLabel: 'Vanguard 2',
-    team: vanguard2,
   }
 };
 
@@ -445,8 +446,8 @@ function buildContent(key) {
 }
 
 function updateHeartBtns(key) {
-  document.getElementById('btn-eden').className = 'heart-btn' + (key === 'eden' ? ' active' : '');
-  document.getElementById('btn-lilith').className = 'heart-btn' + (key === 'lilith' ? ' active' : '');
+  document.getElementById('btn-syndrome').className = 'heart-btn' + (key === 'syndrome' ? ' active' : '');
+  document.getElementById('btn-seraph').className = 'heart-btn' + (key === 'seraph' ? ' active' : '');
 }
 
 function render(key) {
@@ -484,7 +485,7 @@ scrollEl.addEventListener('mousemove', function(e) {
 });
 
 var params = new URLSearchParams(window.location.search);
-var initial = params.get('char') === 'lilith' ? 'lilith' : 'eden';
+var initial = params.get('char') === 'seraph' ? 'seraph' : 'syndrome';
 current = initial;
 render(initial);
 </script>

@@ -72,10 +72,10 @@
   }
   .msg-time { font-size: 9px; color: var(--color-text-tertiary, #6f7380); flex-shrink: 0; margin-bottom: 2px; }
 
-  .msg-row.eden .msg-name { color: #3f6fd1; }
-  .msg-row.eden .msg-bubble { background: rgba(63,111,209,0.10); border: 0.5px solid rgba(63,111,209,0.25); border-bottom-left-radius: 4px; }
-  .msg-row.lilith .msg-name { color: #c94f7c; }
-  .msg-row.lilith .msg-bubble { background: rgba(201,79,124,0.10); border: 0.5px solid rgba(201,79,124,0.25); border-bottom-right-radius: 4px; }
+  .msg-row.syndrome .msg-name { color: #3f6fd1; }
+  .msg-row.syndrome .msg-bubble { background: rgba(63,111,209,0.10); border: 0.5px solid rgba(63,111,209,0.25); border-bottom-left-radius: 4px; }
+  .msg-row.seraph .msg-name { color: #c94f7c; }
+  .msg-row.seraph .msg-bubble { background: rgba(201,79,124,0.10); border: 0.5px solid rgba(201,79,124,0.25); border-bottom-right-radius: 4px; }
 
   .msg-divider { display: flex; align-items: center; gap: 8px; margin: 14px 0 6px; }
   .msg-divider::before, .msg-divider::after { content: ''; flex: 1; height: 0.5px; background: var(--color-border-tertiary, rgba(255,255,255,0.10)); }
@@ -114,29 +114,29 @@
   document.head.appendChild(style);
 
   var AVA = {
-    eden: 'https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Eden_1.jpg',
-    lilith: 'https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Lilith_1.jpg'
+    syndrome: 'https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Syndrome_1.jpg',
+    seraph: 'https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Seraph_1.jpg'
   };
-  var NAME = { eden: 'Eden', lilith: 'Lilith' };
+  var NAME = { syndrome: 'Syndrome', seraph: 'Seraph' };
 
   var log = [
-    { who: 'eden', text: '일어나.', time: '08:12' },
-    { who: 'eden', text: '아침 브리핑 9시야. 또 지각하면 저스티스 팀장이 나한테 전화함.', time: '08:13' },
-    { who: 'eden', text: '…안 읽씹하면 가서 깨운다. 진심.', time: '08:25' },
-    { who: 'lilith', text: '이러나써... 5분만...', time: '08:31' },
-    { who: 'eden', text: '5분 지났어. 일어나.', time: '08:31' },
-    { who: 'eden', text: '커피 사다 놓을 테니까 복도 자판기 앞으로 와. 아메리카노.', time: '08:32' },
-    { who: 'lilith', text: '나... 바닐라 라떼로 해주면 안돼?', time: '08:34' },
-    { who: 'eden', text: '…하아.', time: '08:34' },
-    { who: 'eden', text: '알았어.', time: '08:35' },
+    { who: 'syndrome', text: '일어나.', time: '08:12' },
+    { who: 'syndrome', text: '아침 브리핑 9시야. 또 지각하면 저스티스 팀장이 나한테 전화함.', time: '08:13' },
+    { who: 'syndrome', text: '…안 읽씹하면 가서 깨운다. 진심.', time: '08:25' },
+    { who: 'seraph', text: '이러나써... 5분만...', time: '08:31' },
+    { who: 'syndrome', text: '5분 지났어. 일어나.', time: '08:31' },
+    { who: 'syndrome', text: '커피 사다 놓을 테니까 복도 자판기 앞으로 와. 아메리카노.', time: '08:32' },
+    { who: 'seraph', text: '나... 바닐라 라떼로 해주면 안돼?', time: '08:34' },
+    { who: 'syndrome', text: '…하아.', time: '08:34' },
+    { who: 'syndrome', text: '알았어.', time: '08:35' },
     { divider: '17:22' },
-    { who: 'eden', text: '너 매운 거 먹을 수 있어?', time: '17:22' },
-    { who: 'lilith', text: '응?? 갑자기?? 먹을 수 있는데 왜??', time: '17:24' },
-    { who: 'eden', text: '아니. 됐어.', time: '17:25' },
-    { who: 'lilith', text: '에??? 뭐야 왜 물어보고 말아ㅠㅠ 궁금하잖아', time: '17:26' },
-    { who: 'eden', text: '신드롬이랑 떡볶이 먹으러 다닌다며.', time: '17:28' },
-    { who: 'lilith', text: '?????? 그거 한 달 전인데???? 어떻게 알아???', time: '17:29' },
-    { who: 'eden', text: '다 알아.', time: '17:30' }
+    { who: 'syndrome', text: '너 매운 거 먹을 수 있어?', time: '17:22' },
+    { who: 'seraph', text: '응?? 갑자기?? 먹을 수 있는데 왜??', time: '17:24' },
+    { who: 'syndrome', text: '아니. 됐어.', time: '17:25' },
+    { who: 'seraph', text: '에??? 뭐야 왜 물어보고 말아ㅠㅠ 궁금하잖아', time: '17:26' },
+    { who: 'syndrome', text: '바이브랑 떡볶이 먹으러 다닌다며.', time: '17:28' },
+    { who: 'seraph', text: '?????? 그거 한 달 전인데???? 어떻게 알아???', time: '17:29' },
+    { who: 'syndrome', text: '다 알아.', time: '17:30' }
   ];
 
   var wrap = document.createElement('div');
@@ -159,7 +159,7 @@
       return;
     }
     var follow = m.who === prevWho;
-    var alignClass = m.who === 'lilith' ? ' right' : '';
+    var alignClass = m.who === 'seraph' ? ' right' : '';
     var avatarHtml = follow
       ? '<div class="msg-avatar spacer"></div>'
       : '<div class="msg-avatar"><img src="' + AVA[m.who] + '" alt=""></div>';
@@ -174,7 +174,7 @@
 
   panel.innerHTML =
     '<div class="msg-header">' +
-      '<div><div class="msg-header-title">ARCH MESSENGER</div><div class="msg-header-sub">Eden &amp; Lilith · Log</div></div>' +
+      '<div><div class="msg-header-title">ARCH MESSENGER</div><div class="msg-header-sub">Syndrome &amp; Seraph · Log</div></div>' +
       '<button class="msg-close" aria-label="닫기"><i class="ti ti-x"></i></button>' +
     '</div>' +
     '<div class="msg-body">' + rowsHtml + '</div>' +

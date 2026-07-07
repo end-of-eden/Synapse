@@ -6,7 +6,7 @@
     width: 40px; height: 40px; border-radius: 50%;
     background: var(--color-background-secondary, #f2f2f5);
     border: 0.5px solid var(--color-border-secondary, rgba(0,0,0,0.14));
-    box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+    box-shadow: 0 4px 14px rgba(20,20,30,0.14);
     display: flex; align-items: center; justify-content: center;
     cursor: pointer; color: var(--color-text-primary, #17171b); font-size: 17px;
     transition: transform 0.15s, background 0.15s;
@@ -26,7 +26,7 @@
     background: var(--color-background-primary, #ffffff);
     border: 0.5px solid var(--color-border-tertiary, rgba(0,0,0,0.08));
     border-radius: 14px;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.55);
+    box-shadow: 0 10px 32px rgba(20,20,30,0.16);
     display: flex; flex-direction: column; overflow: hidden;
     font-family: var(--font-sans, 'Pretendard', sans-serif);
     opacity: 0; transform: translateY(12px) scale(0.98); pointer-events: none;
@@ -48,9 +48,11 @@
   .msg-close:hover { background: var(--color-background-secondary, #f2f2f5); color: var(--color-text-primary, #17171b); }
 
   .msg-body {
-    flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 2px;
+    flex: 1; overflow-y: scroll; padding: 16px; display: flex; flex-direction: column; gap: 2px;
+    scrollbar-gutter: stable;
   }
   .msg-body::-webkit-scrollbar { width: 3px; }
+  .msg-body::-webkit-scrollbar-track { background: transparent; }
   .msg-body::-webkit-scrollbar-thumb { background: var(--color-border-secondary, rgba(0,0,0,0.14)); border-radius: 99px; }
 
   .msg-row { display: flex; gap: 8px; margin-top: 10px; max-width: 84%; }
@@ -116,8 +118,8 @@
   document.head.appendChild(style);
 
   var AVA = {
-    syndrome: 'https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Syndrome_1.jpg',
-    seraph: 'https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Seraph_1.jpg'
+    syndrome: 'https://raw.githubusercontent.com/end-of-eden/Synapse/main/img/wiki/Syndrome_1.png',
+    seraph: 'https://raw.githubusercontent.com/end-of-eden/Synapse/main/img/wiki/Seraph_1.png'
   };
   var NAME = { syndrome: 'Syndrome', seraph: 'Seraph' };
 

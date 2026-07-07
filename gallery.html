@@ -12,13 +12,13 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --color-background-primary: #0f0f14;
-  --color-background-secondary: #1a1a22;
-  --color-border-tertiary: rgba(255,255,255,0.10);
-  --color-border-secondary: rgba(255,255,255,0.16);
-  --color-text-primary: #f2f2f5;
-  --color-text-secondary: #b0b4bd;
-  --color-text-tertiary: #6f7380;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f2f2f5;
+  --color-border-tertiary: rgba(0,0,0,0.08);
+  --color-border-secondary: rgba(0,0,0,0.14);
+  --color-text-primary: #17171b;
+  --color-text-secondary: #55585f;
+  --color-text-tertiary: #868991;
   --border-radius-md: 8px;
   --border-radius-lg: 12px;
   --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -26,7 +26,7 @@
 
 body {
   font-family: var(--font-sans);
-  background: #0a0a0f;
+  background: #eef0f3;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -68,8 +68,8 @@ body {
   border-radius: var(--border-radius-md);
   transition: background 0.15s, color 0.15s;
 }
-.topnav a:hover { background: rgba(255,255,255,0.06); color: var(--color-text-secondary); }
-.topnav a.active { background: rgba(255,255,255,0.08); color: var(--color-text-primary); }
+.topnav a:hover { background: rgba(0,0,0,0.05); color: var(--color-text-secondary); }
+.topnav a.active { background: rgba(0,0,0,0.07); color: var(--color-text-primary); }
 .topnav-divider { width: 1px; height: 12px; background: var(--color-border-tertiary); margin: 0 4px; }
 
 .gallery-wrap {
@@ -79,7 +79,7 @@ body {
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   background: var(--color-background-primary);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.45), 0 2px 8px rgba(0,0,0,0.30);
+  box-shadow: 0 8px 32px rgba(20,20,30,0.10), 0 2px 8px rgba(20,20,30,0.06);
   height: 580px;
 }
 

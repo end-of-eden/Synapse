@@ -116,8 +116,8 @@
   document.head.appendChild(style);
 
   var AVA = {
-    syndrome: 'https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Syndrome_1.jpg',
-    seraph: 'https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Seraph_1.jpg'
+    syndrome: 'https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Syndrome_1.png',
+    seraph: 'https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Seraph_1.png'
   };
   var NAME = { syndrome: 'Syndrome', seraph: 'Seraph' };
 

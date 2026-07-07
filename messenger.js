@@ -14,7 +14,7 @@
   .msg-fab:hover { transform: scale(1.06); background: var(--color-background-tertiary, #e8e8ec); }
   .msg-fab .dot {
     position: absolute; top: 4px; right: 4px; width: 7px; height: 7px; border-radius: 50%;
-    background: #fcd1e0; box-shadow: 0 0 0 2px var(--color-background-secondary, #f2f2f5);
+    background: #e63946; box-shadow: 0 0 0 2px var(--color-background-secondary, #f2f2f5);
     animation: msgPulse 2s infinite;
   }
   @keyframes msgPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
@@ -134,7 +134,7 @@
     { who: 'seraph', text: '응?? 갑자기?? 먹을 수 있는데 왜??', time: '17:24' },
     { who: 'syndrome', text: '아니. 됐어.', time: '17:25' },
     { who: 'seraph', text: '에??? 뭐야 왜 물어보고 말아ㅠㅠ 궁금하잖아', time: '17:26' },
-    { who: 'syndrome', text: '이그니스랑 떡볶이 먹으러 다닌다며.', time: '17:28' },
+    { who: 'syndrome', text: '카이날루랑 떡볶이 먹으러 다닌다며.', time: '17:28' },
     { who: 'seraph', text: '?????? 그거 한 달 전인데???? 어떻게 알아???', time: '17:29' },
     { who: 'syndrome', text: '다 알아.', time: '17:30' }
   ];
@@ -174,7 +174,7 @@
 
   panel.innerHTML =
     '<div class="msg-header">' +
-      '<div><div class="msg-header-title">ARCH MESSENGER</div><div class="msg-header-sub">Syndrome &amp; Seraph · Log</div></div>' +
+      '<div><div class="msg-header-title">ARCH MESSENGER</div><div class="msg-header-sub">SIGNAL LOST</div></div>' +
       '<button class="msg-close" aria-label="닫기"><i class="ti ti-x"></i></button>' +
     '</div>' +
     '<div class="msg-body">' + rowsHtml + '</div>' +

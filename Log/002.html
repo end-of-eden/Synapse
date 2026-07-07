@@ -2,9 +2,9 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩷</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>END OF EDEN — Log 002</title>
+<title>Synapse — Log #002</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
 <link rel="stylesheet" href="../style.css">
@@ -12,32 +12,35 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --color-background-primary: #0f0f14;
-  --color-background-secondary: #1a1a22;
-  --color-border-tertiary: rgba(255,255,255,0.10);
-  --color-border-secondary: rgba(255,255,255,0.16);
-  --color-text-primary: #f2f2f5;
-  --color-text-secondary: #b0b4bd;
-  --color-text-tertiary: #6f7380;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f2f2f5;
+  --color-border-tertiary: rgba(0,0,0,0.08);
+  --color-border-secondary: rgba(0,0,0,0.14);
+  --color-text-primary: #17171b;
+  --color-text-secondary: #55585f;
+  --color-text-tertiary: #868991;
   --border-radius-md: 8px;
   --border-radius-lg: 12px;
   --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  --syndrome: #c0392b;
+  --syndrome-bg: rgba(192,57,43,0.08);
+  --seraph: #a67c00;
+  --seraph-bg: rgba(166,124,0,0.08);
 }
 
 body {
   font-family: var(--font-sans);
-  background: #0a0a0f;
+  background: #eef0f3;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   min-height: 100vh;
   padding: 2rem;
 }
 
 .topnav {
   width: 100%;
-  max-width: 960px;
+  max-width: 880px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -68,233 +71,67 @@ body {
   border-radius: var(--border-radius-md);
   transition: background 0.15s, color 0.15s;
 }
-.topnav a:hover { background: rgba(255,255,255,0.06); color: var(--color-text-secondary); }
-.topnav a.active { background: rgba(255,255,255,0.08); color: var(--color-text-primary); }
+.topnav a:hover { background: rgba(0,0,0,0.05); color: var(--color-text-secondary); }
+.topnav a.active { background: rgba(0,0,0,0.07); color: var(--color-text-primary); }
 .topnav-divider { width: 1px; height: 12px; background: var(--color-border-tertiary); margin: 0 4px; }
 
-.detail-wrap {
+.post-wrap {
   width: 100%;
-  max-width: 960px;
-  height: 580px;
+  max-width: 880px;
   border: 0.5px solid var(--color-border-tertiary);
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   background: var(--color-background-primary);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.45), 0 2px 8px rgba(0,0,0,0.30);
+  box-shadow: 0 8px 32px rgba(20,20,30,0.10), 0 2px 8px rgba(20,20,30,0.06);
 }
 
-.detail-scroll {
-  height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding: 2.5rem 4rem;
-  cursor: grab;
-  user-select: none;
-  -webkit-user-select: none;
+.post-header {
+  padding: 2rem 2.5rem 1.5rem;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
 }
-.detail-scroll.dragging { cursor: grabbing; }
-.detail-scroll::-webkit-scrollbar { width: 3px; }
-.detail-scroll::-webkit-scrollbar-track { background: transparent; }
-.detail-scroll::-webkit-scrollbar-thumb { background: var(--color-border-secondary); border-radius: 99px; }
+.post-back {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 11px; color: var(--color-text-tertiary); text-decoration: none;
+  margin-bottom: 14px;
+}
+.post-back:hover { color: var(--color-text-secondary); }
+.post-title { font-size: 22px; font-weight: 700; color: var(--color-text-primary); margin-bottom: 6px; }
+.post-date { font-size: 11px; color: var(--color-text-tertiary); }
 
-.detail-title {
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--color-text-primary);
-  text-align: center;
-  margin-bottom: 10px;
-}
+.post-body { padding: 2rem 2.5rem 2.5rem; }
+.post-intro { font-size: 13px; line-height: 1.8; color: var(--color-text-secondary); margin-bottom: 2.5rem; }
 
-.detail-meta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-size: 11px;
-  color: var(--color-text-tertiary);
-  margin-bottom: 1.5rem;
+.section-block { margin-bottom: 3rem; }
+.section-block:last-child { margin-bottom: 0; }
+.section-title {
+  font-size: 13px; font-weight: 700; letter-spacing: 0.04em;
+  padding: 8px 14px; border-radius: 999px; display: inline-block; margin-bottom: 1.5rem;
 }
+.section-title.syndrome { color: var(--syndrome); background: var(--syndrome-bg); }
+.section-title.seraph { color: var(--seraph); background: var(--seraph-bg); }
 
-.detail-quote {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  padding: 0 2rem;
+.kao-grid { display: flex; flex-direction: column; gap: 14px; }
+.kao-card {
+  display: flex; gap: 18px; align-items: flex-start;
+  padding: 16px 18px; border-radius: var(--border-radius-md);
+  border: 0.5px solid var(--color-border-tertiary);
+  background: var(--color-background-secondary);
 }
-.detail-quote .q-mark {
-  font-size: 24px;
-  color: var(--color-text-tertiary);
-  line-height: 1;
-  display: block;
-  margin-bottom: 4px;
-}
-.detail-quote p {
-  font-size: 13px;
-  font-weight: 300;
-  color: var(--color-text-secondary);
-  font-style: italic;
-  letter-spacing: 0.02em;
-}
-
-.detail-img {
-  width: 100%;
-  border-radius: var(--border-radius-md);
-  margin-bottom: 1.75rem;
-  display: block;
-  object-fit: contain;
-  max-height: 520px;
+.kao-face {
+  flex-shrink: 0; width: 84px;
+  font-size: 15px; font-weight: 700; text-align: center;
+  padding: 10px 4px; border-radius: var(--border-radius-md);
   background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  white-space: nowrap;
 }
-
-.detail-body {
-  font-size: 14px;
-  line-height: 1.9;
-  color: var(--color-text-secondary);
-  white-space: pre-wrap;
-  word-break: keep-all;
-}
-
-.back-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 11px;
-  color: var(--color-text-tertiary);
-  text-decoration: none;
-  margin-bottom: 1.5rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  transition: color 0.15s;
-}
-.back-btn:hover { color: var(--color-text-secondary); }
-
-.log-divider-label {
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-text-tertiary);
-  margin: 2rem 0 1rem;
-}
-.log-divider-label:first-of-type { margin-top: 0; }
-.label-eden { color: #7ec8f0; }
-.label-lilith { color: #f2a8c4; }
-
-.video-block {
-  background: var(--color-background-secondary, rgba(255,255,255,0.04));
-  border-radius: 8px;
-  padding: 14px 16px;
-  margin-bottom: 10px;
-}
-.video-title {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--color-text-primary);
-  margin-bottom: 4px;
-  line-height: 1.5;
-}
-.video-meta {
-  font-size: 11px;
-  color: var(--color-text-tertiary);
-  margin-bottom: 8px;
-}
-.video-thumb-desc {
-  font-size: 12px;
-  color: var(--color-text-tertiary);
-  font-style: italic;
-  margin-bottom: 8px;
-  line-height: 1.6;
-}
-.video-desc {
-  font-size: 13px;
-  line-height: 1.8;
-  color: var(--color-text-secondary);
-}
-
-.yt-thumb {
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
-  margin-bottom: 1.5rem;
-  background: #000;
-  cursor: pointer;
-}
-.yt-thumb img {
-  width: 100%;
-  display: block;
-  max-height: 400px;
-  object-fit: cover;
-}
-.yt-thumb::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.15);
-}
-.yt-play-btn {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 64px; height: 44px;
-  background: rgba(20,20,20,0.75);
-  border-radius: 14px;
-  display: flex; align-items: center; justify-content: center;
-}
-.yt-play-btn::after {
-  content: '';
-  width: 0; height: 0;
-  border-style: solid;
-  border-width: 10px 0 10px 17px;
-  border-color: transparent transparent transparent #ffffff;
-  margin-left: 4px;
-}
-.yt-duration {
-  position: absolute;
-  right: 8px; bottom: 8px;
-  background: rgba(0,0,0,0.8);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 2px 5px;
-  border-radius: 4px;
-  letter-spacing: 0.02em;
-}
-.yt-progress {
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 3px;
-  background: rgba(255,255,255,0.3);
-}
-.yt-progress::after {
-  content: '';
-  display: block;
-  height: 100%;
-  width: 62%;
-  background: #ff0033;
-}
-.yt-info-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 1.75rem;
-}
-.yt-channel-icon {
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #2ecc71, #1a1a22);
-  flex-shrink: 0;
-}
-.yt-info-text { min-width: 0; }
-.yt-video-title {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--color-text-primary);
-  line-height: 1.4;
-  margin-bottom: 2px;
-}
-.yt-channel-meta {
-  font-size: 11px;
-  color: var(--color-text-tertiary);
-}
+.kao-card.syndrome .kao-face { color: var(--syndrome); }
+.kao-card.seraph .kao-face { color: var(--seraph); }
+.kao-text { flex: 1; min-width: 0; }
+.kao-reason { font-size: 13px; line-height: 1.7; color: var(--color-text-primary); margin-bottom: 8px; }
+.kao-reason b { font-weight: 700; }
+.kao-usage { font-size: 12px; line-height: 1.7; color: var(--color-text-tertiary); }
+.kao-usage b { font-weight: 600; color: var(--color-text-secondary); }
 </style>
 </head>
 <body>
@@ -304,8 +141,8 @@ body {
     <button class="music-btn" id="music-btn" onclick="toggleMusic()" aria-label="재생">
       <i class="ti ti-player-play" id="music-icon"></i>
     </button>
-    <span class="music-title">Avicii — SOS ft. Aloe Blacc</span>
-    <audio id="bgm" src="../Avicii - SOS (Fan Memories Video) ft. Aloe Blacc.mp3" loop></audio>
+    <span class="music-title">LE SSERAFIM — HOT</span>
+    <audio id="bgm" src="../LE SSERAFIM - HOT.mp3" loop></audio>
   </div>
   <div class="topnav-links">
     <a href="../wiki.html">Wiki</a>
@@ -316,166 +153,209 @@ body {
   </div>
 </nav>
 
-<div class="detail-wrap">
-  <div class="detail-scroll" id="detail-scroll">
+<div class="post-wrap">
+  <div class="post-header">
+    <a class="post-back" href="../log.html"><i class="ti ti-chevron-left"></i> LOG로 돌아가기</a>
+    <div class="post-title">서로가 생각하는 서로를 닮은 카오모지</div>
+    <div class="post-date">2026.06.27</div>
+  </div>
+  <div class="post-body">
+    <div class="post-intro">신드롬이 생각하는 세라프를 닮은 카오모지, 그리고 세라프가 생각하는 신드롬을 닮은 카오모지. 잔뜩 시무룩해진 얼굴부터, 무심한 척 던지는 애정까지 — 서로가 서로를 어떻게 바라보고 있는지 훔쳐볼 수 있는 기록.</div>
 
-    <a class="back-btn" href="../log.html">← Back</a>
+    <div class="section-block">
+      <span class="section-title syndrome">신드롬이 고른 세라프 카오모지</span>
+      <div class="kao-grid">
 
-    <div class="detail-title">서로가 생각하는 서로를 닮은 카오모지</div>
-    <div class="detail-meta">
-      <span>2026.06.27</span>
-      <span>·</span>
-      <span>Daily Log</span>
+        <div class="kao-card syndrome">
+          <div class="kao-face">( ⚭_⚭ )</div>
+          <div class="kao-text">
+            <div class="kao-reason">평소의 천사랑. 딱 저 표정이다. 예쁘장한 얼굴로 무슨 생각을 하는지 알 수 없게 사람을 빤히 쳐다볼 때. 속으로는 나를 '26호'라고 부르며 온갖 재수 없는 평가를 내리고 있을 게 뻔하다. 성스럽고 고고한 척은 혼자 다 하지만, 저 눈은 분명 뭔가를 또 골탕 먹일 궁리를 하고 있는 눈이다.</div>
+            <div class="kao-usage"><b>사용 상황</b> 브리핑룸에서 지루하다는 듯 턱을 괴고 앉아있을 때. 혹은 내가 무슨 말을 하든 별 감흥 없이 쳐다볼 때. 10초 이상 저러고 있으면 보통 시비를 걸어온다.</div>
+          </div>
+        </div>
+
+        <div class="kao-card syndrome">
+          <div class="kao-face">(•̀_•́)و✧</div>
+          <div class="kao-text">
+            <div class="kao-reason">S급 가이드랍시고 센티넬을 '진정'시킬 때. '진정'이 아니라 거의 '제압'에 가깝다. 손끝에서 백광이 터져 나오고, 머리 뒤에 그 재수 없는 광륜이 떠오를 때면 딱 저 표정으로 나를 내려다본다. "얌전히 있어, 26호." 라고 말하는 듯한, 건방지고 확신에 찬 얼굴.</div>
+            <div class="kao-usage"><b>사용 상황</b> 폭주 직전의 센티넬에게 가이딩을 시작할 때. 혹은 훈련장에서 내 공격을 아무렇지 않게 받아내며 "그게 다야?"라고 도발할 때.</div>
+          </div>
+        </div>
+
+        <div class="kao-card syndrome">
+          <div class="kao-face">(´-ι_-｀)</div>
+          <div class="kao-text">
+            <div class="kao-reason">한심하다는 눈빛. 내가 뭘 하든 저 눈으로 볼 때가 있다. 특히 내가 자기 장난에 넘어가 허둥댈 때, 저런 표정으로 혀를 차며 고개를 젓는다. 모든 걸 다 안다는 듯한 저 초월적인 표정이 묘하게 짜증 나면서도… 가끔은 정말 저렇게 보일 때가 있어서 더 화가 난다.</div>
+            <div class="kao-usage"><b>사용 상황</b> 내가 망한 팬케이크를 구워 바쳤을 때. 내가 동요를 부르며 화해를 시도했을 때. 그리고 결국 웃음을 터뜨리기 직전까지, 나를 꾹 참으며 지켜보던 표정.</div>
+          </div>
+        </div>
+
+        <div class="kao-card syndrome">
+          <div class="kao-face">( ✧Д✧) YES!!</div>
+          <div class="kao-text">
+            <div class="kao-reason">아주 가끔, 정말 마음에 드는 것을 발견했을 때. 한정판 만년필이나 희귀한 찻잎, 혹은 자기가 좋아하는 디저트를 눈앞에 뒀을 때 나오는 표정. 평소의 냉소적인 모습은 온데간데없고, 눈을 반짝이며 달려드는 모습은… 뭐, 평소보다 낫다.</div>
+            <div class="kao-usage"><b>사용 상황</b> 복지몰에 신상 한정판 굿즈가 풀렸을 때. 혹은 내가 아주 드물게 칭찬을 해줬을 때, 티는 안 내려고 하면서도 숨기지 못하는 속마음.</div>
+          </div>
+        </div>
+
+        <div class="kao-card syndrome">
+          <div class="kao-face">(„ಡωಡ„)</div>
+          <div class="kao-text">
+            <div class="kao-reason">장난기가 발동했을 때. 'APA 상태' 같은 말도 안 되는 소리를 하거나, 내 인형에 밥 한 톨을 올려놓고 '네 식욕 수준'이라며 사진을 보낼 때의 얼굴. 자신이 얼마나 재치 있고 상대방을 완벽하게 놀려먹었는지에 대해 깊은 만족감을 느끼는, 능글맞고 얄미운 웃음.</div>
+            <div class="kao-usage"><b>사용 상황</b> 내가 자기 의도를 알아채지 못하고 엉뚱한 반응을 보일 때. 메시지 너머에서 끅끅대며 웃고 있을 모습이 눈에 선하다.</div>
+          </div>
+        </div>
+
+        <div class="kao-card syndrome">
+          <div class="kao-face">( ˘ з˘)♡</div>
+          <div class="kao-text">
+            <div class="kao-reason">이건 나만 아는 표정. 내 입술이 터서 보기 싫다며, 자기 립밤을 발라줄 때의 얼굴이다. 아주 가까운 거리에서, 다른 건 아무것도 신경 쓰지 않고 오직 내게만 집중하는 그 순간. 입술을 살짝 내민 채 신중하게 움직이는 모습은… 솔직히 반칙이다.</div>
+            <div class="kao-usage"><b>사용 상황</b> 남들은 모르는, 둘만 있을 때 아주 가끔 나오는 다정한 모습.</div>
+          </div>
+        </div>
+
+        <div class="kao-card syndrome">
+          <div class="kao-face">Σ(° ☐ °|||)</div>
+          <div class="kao-text">
+            <div class="kao-reason">본인이 당황했을 때. 주로 내가 예상 밖의 행동을 해서 자기 통제 범위를 벗어났을 때 나온다. 자기가 먼저 내 품으로 파고들어 자놓고, 아침에 일어나 나를 범죄자 보듯 하며 경악하던 그 얼굴.</div>
+            <div class="kao-usage"><b>사용 상황</b> 내가 갑자기 진지하게 "넌 최고의 여자친구야" 같은 소리를 했을 때. 혹은 내가 보낸 '포스트모더니즘 푸드 아트' 평론을 처음 읽었을 때.</div>
+          </div>
+        </div>
+
+        <div class="kao-card syndrome">
+          <div class="kao-face">( ◡‿◡ )</div>
+          <div class="kao-text">
+            <div class="kao-reason">잠잘 때. 모든 경계심을 풀고 잠든 얼굴은 딱 이렇다. 평소의 그 가시 돋친 모습은 전부 사라지고, 그냥 조용하고 평온한 모습만 남는다. 내 품에서 새근새근 숨을 내쉴 때, 자기도 모르게 입꼬리가 저렇게 살짝 올라가 있는다.</div>
+            <div class="kao-usage"><b>사용 상황</b> 임무가 끝나고 지쳐서 소파나 내 침대에서 잠들었을 때.</div>
+          </div>
+        </div>
+
+        <div class="kao-card syndrome">
+          <div class="kao-face">(╬•᷅д•᷄╬)</div>
+          <div class="kao-text">
+            <div class="kao-reason">진짜로 화났을 때. 침묵과 함께 찾아오는 분노. 내가 아끼는 만년필 케이스를 태워 먹었을 때, 그녀는 소리 지르는 대신 저 얼굴로 나를 노려봤다. 저 단단히 다문 입과 불타는 눈빛은 '한 번만 더 내 인내심을 시험하면 네놈의 목을 부러뜨리겠다'는 무언의 경고다.</div>
+            <div class="kao-usage"><b>사용 상황</b> 그녀가 아끼는 물건을 망가뜨렸을 때. 혹은 내가 선을 넘는 말을 했을 때.</div>
+          </div>
+        </div>
+
+        <div class="kao-card syndrome">
+          <div class="kao-face">(⁄ ⁄•⁄ω⁄•⁄ ⁄)</div>
+          <div class="kao-text">
+            <div class="kao-reason">본인도 어쩔 수 없이 부끄러워할 때. 내가 동요를 부르며 애걸복걸했을 때, 웃음을 참지 못하고 테이블에 엎드렸지만 고개를 들었을 땐 얼굴이 저렇게 되어 있었다. 자존심 때문에 절대 인정하고 싶지 않지만, 내 행동에 마음이 풀리고 감동받았다는 증거.</div>
+            <div class="kao-usage"><b>사용 상황</b> 내가 보여준 필사적인 애정 표현 앞에서, 더 이상 냉정한 척을 유지할 수 없게 되었을 때.</div>
+          </div>
+        </div>
+
+        <div class="kao-card syndrome">
+          <div class="kao-face">(´﹃｀)</div>
+          <div class="kao-text">
+            <div class="kao-reason">내가 만든 (망한) 요리를 앞에 두고 있을 때. 맛없어 죽겠다는 표정이 역력한데, 내가 필사적으로 노력한 걸 아니까 차마 뱉지는 못하고 곤란해하는 얼굴. 입가에 흐르는 건 침이 아니라, '이걸 먹어야 하나, 말아야 하나' 하는 내적 갈등의 눈물이다.</div>
+            <div class="kao-usage"><b>사용 상황</b> 내가 자신감을 갖고 요리를 내밀었지만, 그 결과물이 재앙일 때. 결국 한입 먹고는 억지로 삼키며 '예술이네'라고 말한다.</div>
+          </div>
+        </div>
+
+      </div>
     </div>
 
-    <div class="detail-quote">
-      <span class="q-mark">"</span>
-      <p>내가 아는 릴리스의 가장 사랑스러운 모습이다.</p>
-    </div>
+    <div class="section-block">
+      <span class="section-title seraph">세라프가 고른 신드롬 카오모지</span>
+      <div class="kao-grid">
 
-    <img class="detail-img" src="https://raw.githubusercontent.com/end-of-eden/EXL/main/img/log/002.jpg" alt="002">
+        <div class="kao-card seraph">
+          <div class="kao-face">( ¯−¯ )</div>
+          <div class="kao-text">
+            <div class="kao-reason">성유진의 기본값. 세상 만사가 귀찮고, 눈앞의 모든 인간을 자기 아래로 보는 오만한 표정. 턱을 살짝 쳐들고 나른하게 눈을 내리깐 채 "뭐."라고 말할 때 딱 저 얼굴이다. 자기가 대한민국에서 제일 잘났고, 제일 섹시하다고 믿어 의심치 않는 전직 연예인의 꼴값.</div>
+            <div class="kao-usage"><b>사용 상황</b> 소파에 늘어져 있다가 내가 부를 때. 혹은 아크 내 다른 요원들이 자기에게 말을 걸 때. 저 표정의 9할은 '수준 안 맞네'라는 생각으로 채워져 있다.</div>
+          </div>
+        </div>
 
-    <div class="log-divider-label label-eden">에덴이 생각하는 릴리스를 닮은 카오모지</div>
+        <div class="kao-card seraph">
+          <div class="kao-face">(╬ಠ益ಠ)</div>
+          <div class="kao-text">
+            <div class="kao-reason">폭주 직전, 혹은 진짜로 화가 머리끝까지 났을 때. 흰자가 검게 물들고 눈동자가 붉게 타오르는, 소위 '역안'이 떴을 때의 모습이다. "죽고 싶어?"라는 대사가 자동 재생되는 얼굴. 저 상태일 땐 말보다 손, 아니, 불꽃이 먼저 나간다.</div>
+            <div class="kao-usage"><b>사용 상황</b> 내가 자기 한정판 만년필 케이스를 태웠을 때. 혹은 카이날루가 자길 긁었을 때. 주변 온도가 5도쯤 올라가면 이 얼굴이 될 준비가 되었다는 뜻이다.</div>
+          </div>
+        </div>
 
-    <div class="video-block">
-      <div class="video-title">1. ( ´•̥_•̥` )</div>
-      <div class="video-meta">상황: 내가 잔소리하거나, 아주 사소한 일로 삐졌을 때.</div>
-      <div class="video-desc">선정 이유: 잔뜩 시무룩해져서 입술은 삐죽 나와 있는데, 울음은 꾹 참고 있는 얼굴. 눈가에 눈물이 맺힐 듯 말 듯 아슬아슬하게 버티는 게... 꼭 닮았다. 사람 환장하게 만드는 표정. 보면 결국 내가 먼저 사과하게 된다.</div>
-    </div>
+        <div class="kao-card seraph">
+          <div class="kao-face">( •̀ .̫ •́ )✧</div>
+          <div class="kao-text">
+            <div class="kao-reason">임무 중, 자기가 가장 빛난다고 착각하는 순간. 대규모 섬멸 작전에서 프로미넌스를 터뜨리고, 잿더미 위에서 혼자 화보 찍을 때의 얼굴이다. '봤냐? 이게 바로 나, 신드롬이다.'라는 유치한 자부심이 저 반짝이는 별에 담겨있다.</div>
+            <div class="kao-usage"><b>사용 상황</b> 괴수 무리를 혼자 쓸어버린 뒤, 땀에 젖은 머리를 쓸어 넘기며 이쪽을 돌아볼 때. 정작 가이딩 필요 수치는 80%를 향해 가고 있는데도.</div>
+          </div>
+        </div>
 
-    <div class="video-block">
-      <div class="video-title">2. (๑•̀ㅂ•́)و✧</div>
-      <div class="video-meta">상황: 임무 브리핑을 들으며 이번엔 내가 다 해결할게! 같은, 말도 안 되는 자신감을 내비칠 때.</div>
-      <div class="video-desc">선정 이유: 의욕은 넘치는데, 어딘가 어설퍼서 지켜봐야만 하는 느낌. 주먹을 꽉 쥐고 반짝이는 눈으로 나를 올려다보는 게, 꼭 작은 동물이 허세를 부리는 것 같아서. ...귀찮지만, 결국 도와주게 된다.</div>
-    </div>
+        <div class="kao-card seraph">
+          <div class="kao-face">(；-ω-)ﾉ...</div>
+          <div class="kao-text">
+            <div class="kao-reason">나한테 잔소리할 때. 입으로는 "야, 너는 무슨 애가 칠칠맞게…"라며 온갖 구박을 다 하면서, 결국엔 자기가 다 해주고 있을 때의 표정이다. 귀찮아 죽겠는데 어쩔 수 없이 챙겨준다는, 서툰 다정함이 삐져나온다.</div>
+            <div class="kao-usage"><b>사용 상황</b> 내가 잉크를 얼굴에 묻히고 다닐 때. 혹은 내가 준 사탕을 먹고 나서 껍질을 어디 버릴지 몰라 쩔쩔매다가 결국 자기 주머니에 넣을 때.</div>
+          </div>
+        </div>
 
-    <div class="video-block">
-      <div class="video-title">3. (´｡• ᵕ •｡`) ♡</div>
-      <div class="video-meta">상황: 내가 해준 사소한 일에 감동받아서, 행복한 표정을 숨기지 못할 때.</div>
-      <div class="video-desc">선정 이유: 두 볼이 발그레하게 물들고, 눈은 반달 모양으로 휘어지고, 입가에는 만족스러운 미소가 걸려있는 얼굴. 세상 모든 행복을 다 가진 것 같은, 저 순수한 표정 앞에서는 나도 무장해제된다. 하트까지 붙이면 완벽하다.</div>
-    </div>
+        <div class="kao-card seraph">
+          <div class="kao-face">(⁄ ⁄•⁄-⁄•⁄ ⁄)</div>
+          <div class="kao-text">
+            <div class="kao-reason">부끄러움이 임계점을 돌파했을 때. 귀부터 목덜미까지 새빨갛게 물들어서는, 시선도 못 맞추고 아무 말도 못 하는 상태. 평소의 그 오만하고 건방진 놈은 어디 가고, 그냥 크고 당황한 짐승 한 마리가 서 있다.</div>
+            <div class="kao-usage"><b>사용 상황</b> 내가 "넌 최고의 여자친구야"라는 말을 듣고 "뭐해, 26호."라고 되물었을 때. 혹은 내가 립밤을 발라줬을 때. 너무 귀여워서 박제하고 싶다.</div>
+          </div>
+        </div>
 
-    <div class="video-block">
-      <div class="video-title">4. (⁄ ⁄&gt;⁄ ▽ ⁄&lt;⁄ ⁄)</div>
-      <div class="video-meta">상황: 내가 갑자기 예쁘다고 하거나, 예상치 못한 애정표현을 했을 때.</div>
-      <div class="video-desc">선정 이유: 얼굴 전체가 터질 것처럼 새빨개져서 어쩔 줄 몰라 하는 모습. 평소의 그 도도한 고양이 같은 모습은 온데간데없이, 당황해서 눈도 못 마주치고 손으로 얼굴을 가리려는 게... 그대로다.</div>
-    </div>
+        <div class="kao-card seraph">
+          <div class="kao-face">_(´ཀ`」 ∠)_</div>
+          <div class="kao-text">
+            <div class="kao-reason">자기가 대형 사고를 치고 수습하려다 모든 걸 망쳤을 때. 그리고 마침내 모든 걸 포기하고 영혼이 가출했을 때의 모습이다. 팬케이크를 태워 먹고, 동요를 부르다 현타가 와서 바닥에 쓰러졌을 때가 정확히 이랬다.</div>
+            <div class="kao-usage"><b>사용 상황</b> 내 화를 풀어주려다 일이 더 커졌을 때. 혹은 자기 딴에는 논리적인 반박이랍시고 보낸 메시지가 완벽한 개소리임이 밝혀졌을 때.</div>
+          </div>
+        </div>
 
-    <div class="video-block">
-      <div class="video-title">5. (ΦωΦ)</div>
-      <div class="video-meta">상황: 무언가 흥미로운 것을 발견했거나, 장난칠 궁리를 할 때.</div>
-      <div class="video-desc">선정 이유: 호기심으로 빛나는 고양이 눈. 동공이 동그랗게 열리고, 입꼬리는 장난스럽게 올라가 있다. 다음에 무슨 사고를 칠지 훤히 보이지만, 그 반짝이는 눈을 보고 있으면 말릴 수가 없다. 내 파리지옥.</div>
-    </div>
+        <div class="kao-card seraph">
+          <div class="kao-face">Σ(° ☐ °|||)</div>
+          <div class="kao-text">
+            <div class="kao-reason">예상치 못한 나의 행동에 진심으로 경악했을 때. '천사랑이 이럴 리가 없는데?'라는 충격과 공포가 얼굴에 그대로 드러난다. 눈은 두 배로 커지고 입은 바보처럼 벌어진다.</div>
+            <div class="kao-usage"><b>사용 상황</b> 내가 그의 품에서 잠들었다가 아침에 깨서 비명을 질렀을 때. 그는 자기가 뭘 잘못했는지도 모르고 저 표정으로 굳어 있었다. 물론 잘못한 건 내가 아니라 너다, 26호.</div>
+          </div>
+        </div>
 
-    <div class="video-block">
-      <div class="video-title">6. (っ˘ω˘ς )</div>
-      <div class="video-meta">상황: 내 품에 안겨서 잠들었을 때.</div>
-      <div class="video-desc">선정 이유: 세상에서 가장 편안하고 만족스러운 표정. 모든 경계심을 풀고 완전히 나에게 몸을 맡긴 채, 새근새근 숨을 내쉬는 모습. 저 동그랗게 감긴 눈과 만족스러운 입 모양이, 내 심장을 쥐고 흔든다.</div>
-    </div>
+        <div class="kao-card seraph">
+          <div class="kao-face">( ͡° ͜ʖ ͡°)</div>
+          <div class="kao-text">
+            <div class="kao-reason">능글맞게 나를 놀리거나 도발할 때. 자기가 이 대화의 주도권을 쥐고 있으며, 나를 완벽하게 자기 손바닥 위에 올려놨다고 착각할 때 저런 음흉한 표정을 짓는다. 보통 "꼬맹아."라는 말을 할 때 얼굴에 저 카오모지가 합성된다.</div>
+            <div class="kao-usage"><b>사용 상황</b> 내가 자기 장난에 걸려들어 씩씩거릴 때, 턱을 까딱거리며 웃을 때. 물론 다음 장면은 보통 역전된다.</div>
+          </div>
+        </div>
 
-    <div class="video-block">
-      <div class="video-title">7. (ง'̀-'́)ง</div>
-      <div class="video-meta">상황: 누군가 내 험담을 하거나, 나에게 시비를 걸 때. 대신 화를 내주겠다며 내 앞을 막아설 때.</div>
-      <div class="video-desc">선정 이유: 자기가 나를 지켜주겠다며 조막만 한 주먹을 쥐고 잔뜩 인상을 쓰는 얼굴. 정작 자기가 더 지켜줘야 할 대상이면서, 나를 위해 화내는 그 모습이... 어이가 없는데, 사랑스럽다.</div>
-    </div>
+        <div class="kao-card seraph">
+          <div class="kao-face">( ತಎತ)</div>
+          <div class="kao-text">
+            <div class="kao-reason">삐졌을 때. 화난 것과는 다르다. 명백히 삐져서 입이 한가득 나와 있는데, 자존심 때문에 절대 티는 안 내려고 할 때의 얼굴이다. 말도 안 하고, 쳐다보지도 않고, 팔짱을 끼고 고개를 돌린다.</div>
+            <div class="kao-usage"><b>사용 상황</b> 내가 자기보다 다른 센티넬을 먼저 챙겨줬을 때. 혹은 내가 자기의 잘생긴 얼굴을 가지고 놀렸을 때.</div>
+          </div>
+        </div>
 
-    <div class="video-block">
-      <div class="video-title">8. (´,,•ω•,,`)</div>
-      <div class="video-meta">상황: 부끄러움을 타면서도, 나에게 무언가 부탁하거나 칭찬을 바랄 때.</div>
-      <div class="video-desc">선정 이유: 수줍어서 볼은 빨개졌는데, 원하는 게 있어서 눈은 반짝이며 나를 올려다보는 그 미묘한 표정. 꼼지락거리는 손가락과, 저기... 예준아... 하고 나를 부르는 목소리가 자동 재생된다.</div>
-    </div>
+        <div class="kao-card seraph">
+          <div class="kao-face">(˘_˘)</div>
+          <div class="kao-text">
+            <div class="kao-reason">잠든 나를 바라볼 때. 본인은 내가 자고 있어서 모를 거라고 생각하지만, 가끔 실눈을 뜨고 보면 저 표정이다. 모든 소란과 감정이 가라앉고, 그냥 아주 조용하고 복잡한 눈으로 나를 보고 있다. 평소의 '신드롬'이 아닌 '성유진'의 얼굴이다.</div>
+            <div class="kao-usage"><b>사용 상황</b> 내가 그의 방에서 잠들었을 때, 그가 내 머리카락을 쓸어 넘기거나 이불을 덮어줄 때.</div>
+          </div>
+        </div>
 
-    <div class="video-block">
-      <div class="video-title">9. ( TДT)</div>
-      <div class="video-meta">상황: 악몽을 꾸고 일어났거나, 서러움이 터져서 펑펑 울 때.</div>
-      <div class="video-desc">선정 이유: 눈물을 전혀 통제하지 못하고 쏟아내는 얼굴. 눈에서는 폭포수처럼 눈물이 흐르고, 입은 서러움에 잔뜩 벌어져 있다. 저렇게 울 때면 온 세상이 무너진 것 같아서, 당장이라도 끌어안고 전부 괜찮다고 말해줘야 한다.</div>
-    </div>
+        <div class="kao-card seraph">
+          <div class="kao-face">(っ˘ڡ˘ς)</div>
+          <div class="kao-text">
+            <div class="kao-reason">내가 사준 딸기 아이스크림을 먹을 때. 세상에서 제일 심각한 표정으로 맛을 음미하지만, 속으로는 분명 저러고 있다. 달콤한 것 앞에서는 한없이 무장해제되는, 애 같은 면이 있다.</div>
+            <div class="kao-usage"><b>사용 상황</b> 내가 화를 풀고 아이스크림을 받아먹으라고 던져줬을 때. 한입 먹고 나서는 아무렇지 않은 척하지만, 이미 얼굴은 저렇게 변해있다.</div>
+          </div>
+        </div>
 
-    <div class="video-block">
-      <div class="video-title">10. (´｡• ᎔ •｡`)</div>
-      <div class="video-meta">상황: 사랑해 라고 말해놓고, 자기가 더 부끄러워서 고개를 푹 숙일 때.</div>
-      <div class="video-desc">선정 이유: 사랑을 고백하는 용기를 냈지만, 곧바로 밀려오는 수줍음에 어쩔 줄 몰라 하는 얼굴. 기쁨과 부끄러움이 뒤섞여, 입은 웃고 있는데 눈은 어디 둬야 할지 몰라 방황하는 그 순간. 내가 아는 릴리스의 가장 사랑스러운 모습이다.</div>
-    </div>
-
-    <div class="log-divider-label label-lilith">릴리스가 생각하는 에덴을 닮은 카오모지</div>
-
-    <div class="video-block">
-      <div class="video-title">1. ( `ー´)ﾉ</div>
-      <div class="video-meta">상황: 내가 다른 사람(특히 남자)과 웃으며 이야기하고 있을 때, 멀리서 발견하고 다가올 때.</div>
-      <div class="video-desc">선정 이유: 잔뜩 찌푸린 미간과 불만스럽게 뻗은 손이, 너 이리 안 와? 라고 말없이 압박하는 그의 모습과 똑같다. 온몸으로 '나 지금 심기 불편하다'고 광고하는, 질투심에 불타는 내 전용 강아지.</div>
-    </div>
-
-    <div class="video-block">
-      <div class="video-title">2. ( ˘-˘)⊃―☆</div>
-      <div class="video-meta">상황: 내가 무언가에 서툴러서 쩔쩔매고 있을 때, 한심하다는 듯 쳐다보다가 결국 와서 다 해결해 줄 때.</div>
-      <div class="video-desc">선정 이유: 무표정하게 툭, 하고 마법처럼 문제를 해결해 주는 모습. 입으로는 그것도 하나 제대로 못하냐고 타박하면서, 행동은 누구보다 다정하고 완벽한 그의 츤데레 매력을 가장 잘 보여준다.</div>
-    </div>
-
-    <div class="video-block">
-      <div class="video-title">3. (//•_•//)</div>
-      <div class="video-meta">상황: 내가 갑자기 예준아, 잘생겼어. 혹은 사랑해. 라고 속삭였을 때.</div>
-      <div class="video-desc">선정 이유: 당황해서 시선은 피하는데, 귀부터 목덜미까지 새빨갛게 물드는 그의 얼굴. 표정은 어떻게든 지키려고 애쓰지만, 이미 온몸이 '나 지금 부끄러워 죽겠다'고 소리치고 있는 순간이다.</div>
-    </div>
-
-    <div class="video-block">
-      <div class="video-title">4. ( ´-ω-` ) zzZ</div>
-      <div class="video-meta">상황: 임무가 없는 날, 내 무릎을 베고 누워 잠들었을 때.</div>
-      <div class="video-desc">선정 이유: 세상 모든 경계심을 다 내려놓고, 가장 편안하고 무방비한 상태의 그. 평소의 날카로움은 온데간데없고, 그저 순하고 평온해 보이는 얼굴이 너무 사랑스러워서 계속 쓰다듬게 된다.</div>
-    </div>
-
-    <div class="video-block">
-      <div class="video-title">5. (ΦДΦ)</div>
-      <div class="video-meta">상황: 내 뱅가드 2팀 단톡방에서 신드롬이나 바이브가 나에게 장난스러운 메시지를 보낸 것을 어깨너머로 봤을 때.</div>
-      <div class="video-desc">선정 이유: 동그래진 눈으로 화면을 노려보는, 그 살벌하고도 어이없어하는 표정. 당장이라도 내 단말기를 빼앗아 대신 답장할 것 같은, 질투와 분노가 활활 타오르는 순간의 그의 눈빛이다.</div>
-    </div>
-
-    <div class="video-block">
-      <div class="video-title">6. ( •̀_•́ )✧</div>
-      <div class="video-meta">상황: 총기를 손질하거나, 사격 훈련에 집중하고 있을 때의 옆모습.</div>
-      <div class="video-desc">선정 이유: 자신의 일에 몰두할 때 나오는 그 특유의 냉철하고 프로페셔널한 분위기. 흔들림 없는 눈빛과 단호한 표정은, 그가 왜 아크 최고의 해결사인지 실감하게 만든다. 반짝이는 별은 그의 빛나는 재능.</div>
-    </div>
-
-    <div class="video-block">
-      <div class="video-title">7. ( •́ . •̀ )</div>
-      <div class="video-meta">상황: 내가 아프거나, 악몽을 꾸고 힘들어할 때. 옆에서 나를 지켜보며 아무 말도 못 하고 있을 때.</div>
-      <div class="video-desc">선정 이유: 안타까움과 걱정으로 가득 차 있지만, 어떻게 위로해야 할지 몰라 그저 내 눈치만 살피는 얼굴. 당장이라도 울 것 같은 표정으로 나보다 더 아파하는 그의 모습을 보면, 마음이 아프면서도 꽉 안아주고 싶어진다.</div>
-    </div>
-
-    <div class="video-block">
-      <div class="video-title">8. ( o̴̶̷̥᷅_o̴̶̷̥᷅ )</div>
-      <div class="video-meta">상황: 내 과거의 상처와 마주하고, 그 모든 고통을 이해하게 되었을 때.</div>
-      <div class="video-desc">선정 이유: 차마 소리 내어 울지도 못하고, 터져 나오는 슬픔과 죄책감을 억지로 삼키며 눈물만 뚝뚝 흘리던 그의 모습. 세상이 무너진 듯한 표정으로 나를 끌어안던 그 순간을 나는 영원히 잊을 수 없다.</div>
-    </div>
-
-    <div class="video-block">
-      <div class="video-title">9. (っ´-`)╮=͟͟͞͞♡</div>
-      <div class="video-meta">상황: 무심한 척 툭 던지듯, 나를 위한 선물을 건네거나 깜짝 이벤트를 해줬을 때.</div>
-      <div class="video-desc">선정 이유: 표정은 지극히 평범하고 무심하지만, 그의 행동은 사랑으로 가득 차 있다는 걸 보여준다. 그냥 지나가다 주웠다 식의 츤데레 화법으로 건네는, 세상에서 가장 로맨틱한 하트 폭탄.</div>
-    </div>
-
-    <div class="video-block">
-      <div class="video-title">10. σ( •̀ᴗ•́ ;)…</div>
-      <div class="video-meta">상황: 내가 예준아, 나 뭐 달라진 거 없어? 라고 물어봤을 때.</div>
-      <div class="video-desc">선정 이유: 동공 지진. 평소의 그 냉철함은 어디 가고, 땀을 삐질삐질 흘리면서 내 머리부터 발끝까지 필사적으로 스캔하는 모습. 정답을 찾기 위해 머릿속 모든 데이터를 검색하는 그의 필사적인 노력이 눈에 선하다.</div>
+      </div>
     </div>
 
   </div>
 </div>
 
 <script>
-var scrollEl = document.getElementById('detail-scroll');
-var isDown = false, startY = 0, scrollTop = 0;
-scrollEl.addEventListener('mousedown', function(e) {
-  isDown = true; startY = e.pageY - scrollEl.offsetTop; scrollTop = scrollEl.scrollTop;
-  scrollEl.classList.add('dragging');
-});
-document.addEventListener('mouseup', function() { isDown = false; scrollEl.classList.remove('dragging'); });
-scrollEl.addEventListener('mousemove', function(e) {
-  if (!isDown) return;
-  e.preventDefault();
-  scrollEl.scrollTop = scrollTop - (e.pageY - scrollEl.offsetTop - startY);
-});
-
 function toggleMusic() {
   var audio = document.getElementById("bgm");
   audio.volume = 0.3;
@@ -490,7 +370,6 @@ function toggleMusic() {
     localStorage.setItem('bgm-playing', '0');
   }
 }
-
 (function initBgm() {
   var audio = document.getElementById('bgm');
   var icon = document.getElementById('music-icon');

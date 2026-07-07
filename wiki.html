@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<link rel="preload" as="image" href="https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Syndrome_1.jpg">
+<link rel="preload" as="image" href="https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Syndrome_1.png">
 <link rel="preload" as="image" href="https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Seraph_1.jpg">
 <meta charset="UTF-8">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>">  
@@ -222,7 +222,7 @@ body {
 <div class="wiki-wrap theme-syndrome" id="wiki">
   <div class="standing-panel">
     <div class="standing-img">
-      <img id="standing-img-el" src="https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Syndrome_1.jpg" alt="standing" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
+      <img id="standing-img-el" src="https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Syndrome_1.png" alt="standing" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
     </div>
     <div class="char-badge" id="char-badge">S-Class Guide</div>
     <div class="char-name-panel" id="char-name-panel">Syndrome</div>
@@ -286,7 +286,7 @@ function toggleMusic() {
 var current = 'syndrome';
 
 var STANDING_IMG = {
-  syndrome: 'https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Syndrome_1.jpg',
+  syndrome: 'https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Syndrome_1.png',
   seraph: 'https://raw.githubusercontent.com/end-of-eden/EXL/main/img/wiki/Seraph_1.jpg'
 };
 // 전환 클릭 시점에 이미 캐시돼 있도록 두 스탠딩 이미지를 미리 받아둠 (밀림현상 방지)
@@ -347,29 +347,32 @@ var data = {
     name: 'Seraph', codename: '세라프',
     attrIcon: 'ti-bolt', attrLabel: 'Fulmen',
     infos: [
-      { label: 'Age', value: '28세' }, { label: 'Nationality', value: '한국' },
-      { label: 'Height', value: '184cm' }, { label: 'Unit', value: 'R.S.T.' },
+      { label: 'Age', value: '26세' }, { label: 'Nationality', value: '한국' },
+      { label: 'Height', value: '160cm' }, { label: 'Unit', value: 'R.S.T.' },
       { label: 'Rank', value: 'S-Class Guide' }, { label: 'Attribute', value: 'Fulmen' },
     ],
-    eval: '전직 올림픽 금메달리스트. S급 바람 속성 가이드로 분류되나, 파트너 배정을 전면 거부하고 긴급 제압팀(R.S.T.)의 해결사로만 활동. 센티넬을 결함품으로 간주하며 극도의 비협조적 태도를 보인다.',
-    personality: '차갑고 무심한 외면 뒤에 깊은 공허함이 자리한다. 세상 모든 것이 지루하며 총을 쏘는 순간만이 유일하게 살아있는 기분을 준다.',
+    eval: 'S급 번개 속성 가이드. 전투 증폭과 진정, 양쪽 능력이 모두 발현된 희귀 케이스로 ARCH 내 별명은 \'치천사\'. 센티넬을 다정하게 달래기보다 압도적인 확신으로 찍어누르는 방식의 가이딩을 선호하며, 불완전하게 질질 끄는 상황을 용납하지 않는 냉철한 판단으로 알려져 있다.',
+    personality: '천사 같은 외모와 달리 성격은 날카롭고 오만하다. 말투는 공손하지만 내용은 대체로 독하다. 무능함, 저열함, 애매한 선의를 혐오하며, 불완전하게 질질 끌 바에는 깨끗하게 끝내는 편이 낫다고 믿는다. 이름과는 달리 악마 같은 성격에, 모든 사람에게 반말을 쓰는 안하무인.',
     abilities: [
-      { label: '권태로운 명사수 (The Apathetic Marksman)', desc: 'R.S.T.의 에이스이자 ARCH에서 가장 비싼 총알을 사용하는 해결사. 선수 출신의 사격술은 그 어떤 센티넬의 공격보다 빠르고 정확하다. 폭주하는 센티넬은 그에게 그저 시끄러운 소음일 뿐이며, 임무란 그 소음을 가장 빠르고 귀찮지 않게 끄는 것이다.' },
-      { label: '[Buff] Aero Diffusion', desc: 'S급 바람 가이드의 고유 능력. 가이딩 시 파트너의 속성 공격 범위를 확산시키고 일시적인 부유 능력을 부여한다. (최대 1시간)' },
-      { label: '[Gear] Wind-Stabilizer', desc: 'S급 바람 파장을 기반으로 특수 제작된 가이딩 주사기. 총알 내부의 신경 안정제가 명중 시 바람의 확산 속성으로 발현되어 기체(Aerosol) 형태로 전신 신경계에 확산, 대상을 일시적으로 무력화 및 강제 안정 상태로 만든다.' },
+      { label: 'Dies Irae — 디에스 이레 (진노의 날)', desc: '세라프의 고유 가이딩 능력. 평소에는 실체가 없지만 가이딩 출력이 올라갈수록 손끝과 광륜에 성광이 모여 빛의 활, 성궁(聖弓)을 이룬다. 화살은 물리 탄환이 아닌 압축된 백광이다.' },
+      { label: '[Mode] Requiem — 진정', desc: '순백의 성광이 센티넬의 신경계를 감싸 과열된 감각과 파괴 충동을 차갑게 가라앉힌다. 폭주 직전의 센티넬도 세라프의 손이 닿으면 마치 모든 소음이 사라진 듯 고요해진다.' },
+      { label: '[Mode] Judgement — 증폭', desc: '머리 뒤 광륜이 떠오르고 성광이 번지는 순간, 센티넬의 출력과 반응 속도를 극한까지 끌어올린다. 단순 강화가 아니라 목표를 잿더미로 되돌리는 심판처럼 발현된다.' },
     ],
-    notes: [],
+    notes: [
+      'ARCH 내부 별명 "치천사". S급 가이드 중에서도 전투 증폭·진정 양 능력이 모두 발현된 희귀 케이스.',
+      '체향은 은은한 머스크와 시트러스. 친해지면 엉뚱하고 장난도 많이 치며 스킨쉽을 좋아하는 편.',
+    ],
     visual: [
-      { label: '신장/체격', value: '184.2cm. 팔다리가 긴 슬림한 근육 체형.' },
-      { label: '주요 특징', value: '새하얀 피부, 애쉬 블론드 헤어, 안광 없는 하늘색 눈, 긴 속눈썹. 차가운 미남.' },
-      { label: '복장', value: '깔끔한 흰색 가이드 제복 셔츠에 숄더 홀스터.' },
+      { label: '신장/체중', value: '160cm / 48kg. 비현실적으로 아름답고 성스러운 분위기의 절세미인.' },
+      { label: '주요 특징', value: '창백하리만큼 맑은 피부와 정교한 이목구비, 빛을 받은 성상처럼 고요하고 압도적인 얼굴. 허리 아래까지 흐르는 긴 은백색 머리카락, 연한 회색에 가까운 눈동자. 눈매는 차갑지만 아름답고 표정은 늘 평온해 보여 오히려 쉽게 다가갈 수 없다.' },
+      { label: '복장', value: '흰색과 금색이 섞인 차이나 칼라 제복에 긴 망토, 제복 모자. 길게 뻗은 흰 다리 아래 하얀 하이힐.' },
     ],
     tmi: [
-      { label: '전직 금메달리스트', value: '5년 전 사격(권총) 전 국가대표 올림픽 금메달리스트. 속성 각성 후 은퇴.' },
-      { label: '체질', value: '바람 속성 각성으로 체질이 대기의 기류와 동기화되어 미세한 손떨림(신경 진동)을 얻게 됨. 흡연은 이 감각을 억누르고 집중력을 다스리기 위해 시작.' },
-      { label: '골초', value: '하루에 두 갑 이상 피우는 엄청난 골초. 단맛이 전혀 없는, 폐가 시릴 정도의 드라이 멘솔 계열만 고집한다. 담배가 떨어지면 금단현상으로 신경과민이 심해짐.' },
+      { label: '성장 배경', value: '어릴 적 부모님이 성당에 버리고 간 이후 쭉 성직자의 길을 걸었다. 수녀원에서 성인이 지난 이후까지 지냈지만 실은 신 따윈 하나도 믿지 않는 무신론자에 가깝다.' },
+      { label: '가면', value: '온순하고 고분고분한 척은 가이드로 각성한 이후 베일을 걷어내듯 내다 버렸다.' },
+      { label: '고지식한 순정파', value: '꽤나 불성실하고 신성모독을 일삼는 인생을 살았지만 그럼에도 문란한 사람들은 싫어한다. 고지식하지만 알고 보면 순정파.' },
     ],
-    log: '코드네임 \'세라프\'는 자유로웠다. 하모니 부서의 긴급 제압팀(R.S.T.)이라는 소속은, 파트너라는 족쇄 없이 합법적으로 총을 쏠 수 있는 완벽한 면죄부였다.\n\n전직 금메달리스트. S급 가이드. 그는 이 모든 화려한 타이틀이 그저 귀찮았고, 세상 모든 것이 권태로웠다. 그가 유일하게 지루함을 잊는 순간은, 폭주하는 센티넬의 머리통에 특수탄을 박아 넣는, 그 찰나의 순간뿐이었다.\n\n그날도 딱 그런 귀찮은 임무 중 하나였다. 폐허에 고립되어 죽어가던 센티넬 신드롬. 온 사방을 뒤지느라 잔뜩 심기가 불편해진 그는, 마침내 무너진 건물 잔해 속에서 당신을 발견했다. 탕-! 총성은 정확했고, 당신은 그대로 무너졌다. 그는 담배 연기를 뿜으며 다가와, 그 권태로운 표정으로 한마디를 툭 던졌다.\n\n"...찾았네."\n\n그는 규정상 필요한 최소한의 임시 가이딩을 실행했을 뿐이다. ...그의 인생에서 가장 재수 없는 실수가 될 줄도 모르고. 그 단 한 번의 접촉이 각인 현상을 일으켰다. 이제 신드롬은, 세라프 외의 그 어떤 가이드에게서도 가이딩을 받을 수 없는 몸이 되었다. 그리고 세라프는, 자신이 가장 저열하고 귀찮게 여겼던 센티넬이라는 존재에게... 평생 발목이 잡힌 신세가 되었다. 그의 자유로운 솔로 라이프는, 그렇게 끝났다.',
+    log: '',
     teamLabel: 'R.S.T. — Rampage Suppression Team',
     team: rst,
   }

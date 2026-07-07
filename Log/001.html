@@ -2,9 +2,9 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩷</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>END OF EDEN — Log 001</title>
+<title>Synapse — YouTube Algorithm Log</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
 <link rel="stylesheet" href="../style.css">
@@ -12,13 +12,13 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --color-background-primary: #0f0f14;
-  --color-background-secondary: #1a1a22;
-  --color-border-tertiary: rgba(255,255,255,0.10);
-  --color-border-secondary: rgba(255,255,255,0.16);
-  --color-text-primary: #f2f2f5;
-  --color-text-secondary: #b0b4bd;
-  --color-text-tertiary: #6f7380;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f2f2f5;
+  --color-border-tertiary: rgba(0,0,0,0.08);
+  --color-border-secondary: rgba(0,0,0,0.14);
+  --color-text-primary: #17171b;
+  --color-text-secondary: #55585f;
+  --color-text-tertiary: #868991;
   --border-radius-md: 8px;
   --border-radius-lg: 12px;
   --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -26,7 +26,7 @@
 
 body {
   font-family: var(--font-sans);
-  background: #0a0a0f;
+  background: #eef0f3;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -68,8 +68,8 @@ body {
   border-radius: var(--border-radius-md);
   transition: background 0.15s, color 0.15s;
 }
-.topnav a:hover { background: rgba(255,255,255,0.06); color: var(--color-text-secondary); }
-.topnav a.active { background: rgba(255,255,255,0.08); color: var(--color-text-primary); }
+.topnav a:hover { background: rgba(0,0,0,0.05); color: var(--color-text-secondary); }
+.topnav a.active { background: rgba(0,0,0,0.07); color: var(--color-text-primary); }
 .topnav-divider { width: 1px; height: 12px; background: var(--color-border-tertiary); margin: 0 4px; }
 
 .detail-wrap {
@@ -80,7 +80,7 @@ body {
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   background: var(--color-background-primary);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.45), 0 2px 8px rgba(0,0,0,0.30);
+  box-shadow: 0 8px 32px rgba(20,20,30,0.10), 0 2px 8px rgba(20,20,30,0.06);
 }
 
 .detail-scroll {
@@ -177,7 +177,8 @@ body {
 .log-divider-label:first-of-type { margin-top: 0; }
 
 .video-block {
-  background: var(--color-background-secondary, rgba(255,255,255,0.04));
+  background: var(--color-background-secondary, rgba(0,0,0,0.04));
+  border: 0.5px solid var(--color-border-tertiary);
   border-radius: 8px;
   padding: 14px 16px;
   margin-bottom: 10px;
@@ -277,7 +278,7 @@ body {
 .yt-channel-icon {
   width: 32px; height: 32px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #2ecc71, #1a1a22);
+  background: linear-gradient(135deg, #c0392b, #ffffff);
   flex-shrink: 0;
 }
 .yt-info-text { min-width: 0; }
@@ -318,7 +319,7 @@ body {
 
     <a class="back-btn" href="../log.html">← Back</a>
 
-    <div class="detail-title">유튜브 시청 기록</div>
+    <div class="detail-title">성유진 유튜브 알고리즘</div>
     <div class="detail-meta">
       <span>2026.06.26</span>
       <span>·</span>
@@ -327,11 +328,11 @@ body {
 
     <div class="detail-quote">
       <span class="q-mark">"</span>
-      <p>...시끄러운 건 별로니까, 조용한 바닷가에서... 둘만 있을 때 하는 게 낫겠네.</p>
+      <p>모든 길은 단 한 사람에게로 통했다. 천사랑.</p>
     </div>
 
     <div class="yt-thumb">
-      <img src="https://raw.githubusercontent.com/end-of-eden/EXL/main/img/log/001.jpg" alt="001">
+      <img src="https://raw.githubusercontent.com/end-of-eden/Synapse/main/img/log/001.jpg" alt="001">
       <div class="yt-play-btn"></div>
       <div class="yt-duration">15:42</div>
       <div class="yt-progress"></div>
@@ -344,49 +345,54 @@ body {
       </div>
     </div>
 
+    <div class="detail-body" style="margin-bottom: 2rem;">성유진은 제 방 소파에 깊숙이 파묻힌 채 제복 자켓을 벗어던지고 편안한 실내복 차림으로 단말기를 들여다보고 있었다. 늦은 밤의 정적 속에서 그의 얼굴 위로 단말기의 인공적인 빛만이 명멸했다. 원래라면 자신의 전투 영상이나 패션 채널을 둘러보고 있을 시간이었다. 하지만 최근 그의 유튜브 알고리즘은 주인의 의사와는 상관없이 멋대로 길을 잃고 헤매는 중이었다. 모든 길은 단 한 사람에게로 통했다. 천사랑. 성유진은 마른세수를 하며 한숨과 함께 홈 화면을 새로고침했다. 그러나 인공지능은 집요하게 그의 속마음을 파고들 뿐이었다.</div>
+
     <div class="log-divider-label">최근 시청한 동영상</div>
     <div class="video-block">
-      <div class="video-title">[ASMR] 극강의 부드러움, 프리미엄 꿀 스틱 립밤 10종 비교 리뷰 | No Talking</div>
-      <div class="video-meta">15:42</div>
-      <div class="video-desc">최근 릴리스가 자신의 튼 입술에 립밤을 발라주었던 사건 이후, 에덴은 난생처음으로 '립밤'이라는 물건에 대해 진지하게 고찰하기 시작했다. 그녀의 입술 역시 건조한 아크의 공기 속에서 상하지는 않을까, 자신이 그녀에게 발라줄 수 있는 가장 좋은 것은 무엇일까 고민했다. 하지만 대놓고 물어보기에는 자존심이 허락하지 않았다. 결국 그는 한밤중, 침대에서 몰래 이 영상을 찾아보았다. 남자의 목소리나 광고 멘트가 나오는 시끄러운 영상은 질색이었기에, 오직 제품의 질감과 소리에만 집중하는 ASMR 영상을 선택했다. 영상 내내 여러 종류의 립밤이 매끄러운 유리판 위에 그어지고, 마이크 가까이에서 뚜껑이 열리고 닫히는 소리가 반복되었다. 에덴은 화면 속 립밤들의 미세한 질감 차이를 분석하며, 릴리스가 쓰는 것과 가장 비슷한 꿀 향이 나면서도 가장 순하고 부드러운 제품이 무엇인지 찾기 위해 눈에 불을 켰다. 그 모습은 마치 새로운 저격용 스코프를 고르는 것처럼 신중하고 진지했다.</div>
+      <div class="video-title">절대 지지 않는 논쟁의 기술 10가지</div>
+      <div class="video-meta">12:45</div>
+      <div class="video-thumb-desc">굵은 글씨로 적힌 절대 지지 않는 논쟁의 기술 10가지. 안경을 쓴 남자가 자신만만한 포즈로 정면을 가리키고 있다. 배경에는 논파! 반박불가! 같은 효과음이 그래픽으로 박혀 있다.</div>
+      <div class="video-desc">동영상 내용: 심리학과 논리학에 기반한 토론 필승 전략을 소개하는 영상. 상대방의 감정적 허점 공략하기 프레임 전환하기 반박할 수 없는 데이터 제시하기 등의 기술을 다룬다. 시청 이유: 명백하다. 천사랑과의 말싸움에서 단 한 번이라도 이겨보기 위해서였다. 귀여우면 다야 같은 말도 안 되는 논리를 논리적으로 격파할 방법을 찾기 위해 끝까지 시청했지만 결국 영상 속 강사가 말하는 감정적인 상대의 예시가 천사랑과 너무 달라 별 도움이 되지 않았다. 오히려 그런 상대와는 논쟁을 피하는 것이 상책이라는 결론에 분통만 터뜨렸다.</div>
     </div>
 
     <div class="log-divider-label">함께 추천된 동영상 목록</div>
 
     <div class="video-block">
-      <div class="video-title">1. 뱅갈 고양이 '레오'가 아기 집사에게만 보여주는 필살 애교 5가지</div>
-      <div class="video-meta">8:11</div>
-      <div class="video-thumb-desc">카메라를 등진 채 엎드려 자는 아기의 등 위로 뱅갈 고양이 한 마리가 식빵 자세로 올라타 편안하게 눈을 감고 있는 모습. 따뜻한 햇살이 비치는 창가 배경.</div>
-      <div class="video-desc">릴리스의 고양이 같은 면모를 떠올리며 무심코 클릭한 영상. 에덴은 평소 동물을 보며 귀엽다고 느끼는 자신의 감정을 인정하지 않으려 했지만, 이 영상 앞에서는 속수무책이었다. 영상 속 '레오'라는 이름의 뱅갈 고양이는 아기 집사가 울 때마다 다가가 앞발로 뺨을 톡톡 건드리거나, 잠든 아기의 배 위에 올라가 골골송을 부르며 함께 잠들었다. 특히 아기가 레오의 꼬리를 잡아당겨도 전혀 화내지 않고, 오히려 꼬리를 살랑이며 아기의 손을 핥아주는 장면에서 에덴은 옅은 미소를 감추지 못했다. 그는 영상을 보며 릴리스가 자신에게만 보여주는 사소한 애교들—뒤에서 몰래 껴안거나, 볼을 부비거나, 삐졌을 때 입술을 삐죽이는 모습들—을 겹쳐 보았다. 이 영상을 본 이후, 에덴은 릴리스의 머리를 쓰다듬을 때마다 마치 거대한 고양이를 돌보는 집사가 된 듯한 기묘한 만족감을 느끼게 되었다.</div>
+      <div class="video-title">1. [ASMR] 연인의 삐뚤어진 마음을 풀어주는 1시간 심리 상담 롤플레이</div>
+      <div class="video-meta">1:02:11</div>
+      <div class="video-thumb-desc">따뜻한 조명이 켜진 상담실 배경. 부드러운 인상의 여성 상담사가 온화한 미소를 지으며 시청자를 바라보고 있다. 괜찮아요 다 털어놓아 봐요. 라는 자막이 작게 달려 있다.</div>
+      <div class="video-desc">동영상 내용: 츤데레 애정표현이 서툰 연인을 둔 사람들을 위한 가상 상담 콘텐츠. 솔직하게 마음을 표현하지 못하는 사람의 심리를 분석하고 그들의 행동에 숨겨진 진의를 해석해준다. 거친 말은 사실 관심받고 싶다는 신호일 수 있어요 같은 대사가 나온다. 추천 이유: 성유진이 화 잘 내는 사람 심리 말 험하게 하는 이유 등을 검색한 기록을 바탕으로 추천되었다. 그는 물론 자신이 아니라 늘 가시 돋친 말을 하는 천사랑을 이해해보려는 숭고한 목적이었다고 스스로를 속였다.</div>
     </div>
 
     <div class="video-block">
-      <div class="video-title">2. [가드닝 브이로그] 죽어가던 검은 장미 '블랙 바카라' 살려내기 (feat. 과습과 병충해)</div>
-      <div class="video-meta">22:05</div>
-      <div class="video-thumb-desc">반쯤 시들어 축 늘어진 검은 장미 화분(Before)과, 한 달 뒤 탐스럽게 피어난 검은 장미(After) 사진이 나란히 배치된 이미지.</div>
-      <div class="video-desc">릴리스의 능력은 검은 장미와 가시덩굴을 형상화한다. 그녀의 체향마저 장미 향이다. 에덴에게 장미는 곧 릴리스 그 자체였다. 그는 언젠가 그녀에게 평범한 일상을 선물하게 된다면, 가장 먼저 작은 정원을 만들어 그녀가 좋아하는 장미를 마음껏 피우게 해주고 싶다고 생각했다. 이 영상은 가드닝에 문외한인 그에게 하나의 교과서나 다름없었다. 영상 속 유튜버는 과습으로 뿌리가 썩고 병충해로 잎이 말라가던 장미를 어떻게 되살리는지 차근차근 설명했다. 흙을 갈아주고, 상한 가지를 잘라내고, 약을 뿌리고, 매일 햇빛과 바람을 쐬어주는 과정은 마치 폭주 직전의 센티넬을 돌보는 과정처럼 섬세한 주의를 요구했다. 에덴은 이 영상을 보며, 과거의 상처로 스스로를 혐오하던 릴리스를 떠올렸다. 그녀의 아픔을 잘라내고, 자신의 사랑으로 영양분을 주고, 따뜻한 관심으로 돌본다면 그녀 역시 이 검은 장미처럼 누구보다 아름답게 피어날 것이라고. 그는 영상을 끝까지 시청한 뒤, '유기농 장미 영양제 TOP 5'를 검색했다.</div>
+      <div class="video-title">2. 10분 완성! 절대 실패하지 않는 커플 마사지 feat. 아로마 오일 추천</div>
+      <div class="video-meta">9:58</div>
+      <div class="video-thumb-desc">한 남성이 연인의 어깨를 부드럽게 주무르고 있고 여성이 편안한 표정으로 눈을 감고 있다. 옆에는 라벤더 로즈마리 등 다양한 아로마 오일 병들이 예쁘게 놓여 있다.</div>
+      <div class="video-desc">동영상 내용: 전문가가 알려주는 간단한 커플 마사지 기술. 어깨 목 손 등 피로가 쌓이기 쉬운 부위를 효과적으로 풀어주는 방법을 단계별로 보여준다. 후반부에는 상황별 추천 아로마 오일 효능도 소개한다. 추천 이유: 어깨 통증 완화 만성 피로 등을 검색한 결과. 늘 긴장 상태로 임무에 나서는 천사랑의 피로를 풀어줄 방법을 찾으려다 클릭할 뻔했다. 물론 내가 왜? 라며 경멸하듯 창을 껐지만 알고리즘은 그의 짧은 망설임을 놓치지 않았다.</div>
     </div>
 
     <div class="video-block">
-      <div class="video-title">3. 전설의 탄생: 2020 도쿄 올림픽 사격 남자 25m 속사권총 결선 풀경기 (홍예준 해설위원 ver.)</div>
-      <div class="video-meta">48:30</div>
-      <div class="video-thumb-desc">태극기를 몸에 두른 채 환호하는 관중석을 향해 거수경례를 하고 있는, 5년 전 앳된 얼굴의 홍예준. 그의 목에는 금메달이 빛나고 있다.</div>
-      <div class="video-desc">그가 유일하게 반복해서 돌려보는, 자신의 과거이자 영광의 기록. 각성으로 인해 사격 선수로서의 커리어를 잃은 뒤로는 일부러 찾아보지 않았던 영상이었다. 하지만 릴리스가 자신의 악몽 속에서, 가장 끔찍했던 순간에 TV 속 자신을 보며 '멋있다'고 중얼거렸다는 사실을 알게 된 후, 이 영상의 의미는 완전히 달라졌다. 그는 더 이상 이 영상을 보며 잃어버린 과거를 아쉬워하지 않았다. 대신, 지옥 같았을 그녀의 삶에 아주 잠깐이라도 빛이 되어주었던 스무 살의 자신을 확인하기 위해 영상을 재생했다. 마지막 격발, 과녁 중앙에 정확히 박히는 총알, 금메달이 확정되는 순간의 환호성. 그는 해설위원이 되어 자신의 플레이를 냉정하게 분석하는 5년 후의 자신을 보며 씁쓸하게 웃었다. 이 영상은 이제 그의 상처가 아니라, 그녀를 지켜야만 하는 이유이자, 그녀가 사랑했던 '홍예준'이라는 남자의 가장 빛나는 증거가 되었다.</div>
+      <div class="video-title">3. 전장의 지배자 S급 불속성 센티넬 신드롬 하이라이트 매드무비 | 내가 곧 재앙이다</div>
+      <div class="video-meta">4:33</div>
+      <div class="video-thumb-desc">역안이 된 채 섬뜩하게 웃는 성유진의 클로즈업 샷. 주변은 온통 검은 화염에 휩싸여 있다. 채널 이름은 히어로 월드.</div>
+      <div class="video-desc">동영상 내용: 성유진의 지난 S급 임무 활약상을 모아 편집한 팬메이드 영상. 현란한 편집과 웅장한 배경음악 위로 그의 압도적인 파괴력이 펼쳐진다. 댓글 창은 역시 우리 유진님 너무 멋있어서 기절 같은 찬양 일색이다. 추천 이유: 성유진은 자존심이 상하거나 천사랑에게 패배감을 느낄 때마다 주기적으로 자기 영상을 찾아본다. 압도적인 힘으로 모든 것을 파괴하는 자신의 모습을 보며 깎였던 자존심을 회복하고 위안을 얻기 때문이다. 오늘도 어김없이 시청 기록에 남아 있다.</div>
     </div>
 
     <div class="video-block">
-      <div class="video-title">4. [총기 리뷰] 미 특수부대가 사용하는 SIG P320, 실사격 리뷰. 과연 최고의 택티컬 피스톨인가?</div>
-      <div class="video-meta">18:27</div>
-      <div class="video-thumb-desc">검은색 전술 장갑을 낀 손이 사격장에서 막 격발된 SIG P320 권총을 파지하고 있고, 총구에서는 희미한 연기가 피어오르고 있는 클로즈업 샷.</div>
-      <div class="video-desc">에덴의 알고리즘에서 유일하게 그의 '본업'과 관련된 영상. 그는 R.S.T.의 에이스로서 항상 최신 총기 정보와 전술 동향에 민감했다. 이 영상은 에덴이 현재 사용하는 제식 권총의 개량 모델에 대한 상세 리뷰였다. 영상 속 리뷰어는 총기의 무게 중심, 방아쇠 압력, 반동 제어, 부품 내구성 등을 밀리미터 단위로 분석하며 꼼꼼하게 설명했다. 에덴은 소파에 비스듬히 누워 영상을 보면서도, 눈빛만은 사격 통제실의 모니터를 주시하는 것처럼 날카로웠다. 그는 영상 속 총기의 장단점을 파악하고 자신의 총기와 비교 분석하며, 다음 부품 교체 시 어떤 커스텀을 적용할지 머릿속으로 시뮬레이션을 돌렸다. 그에게 총기란 단순히 센티넬을 제압하는 도구가 아니라, 자신의 손과 감각이 연장된 신체의 일부였다. 그리고 이제는, 릴리스를 지키기 위한 가장 확실한 수단이기도 했다.</div>
+      <div class="video-title">4. 고양이들은 왜 자꾸 물건을 떨어뜨릴까? 집사라면 꼭 알아야 할 냥이 심리 7가지</div>
+      <div class="video-meta">7:19</div>
+      <div class="video-thumb-desc">고양이 한 마리가 테이블 끝에 놓인 컵을 앞발로 툭 치기 직전의 순간을 포착한 사진. 집사야 놀자! 라는 말풍선이 달려 있다.</div>
+      <div class="video-desc">동영상 내용: 고양이의 문제 행동으로 보이는 것들에 숨겨진 심리를 파헤치는 영상. 관심 요구 사냥 본능 영역 표시 등 다양한 이유를 설명하며 고양이와의 유대감을 높이는 팁을 제공한다. 추천 이유: 성유진은 천사랑을 볼 때마다 고양이 같다고 생각한 적이 한두 번이 아니다. 제멋대로 굴다가도 어느새 옆에 와 있고 툭툭 건드리며 시비를 걸고 제 마음에 안 들면 날카롭게 할퀴는 모습까지. 그는 도도한 고양이 길들이는 법 같은 영상을 검색했다가 이 영상까지 흘러 들어왔다.</div>
     </div>
 
     <div class="video-block">
-      <div class="video-title">5. 세상에서 가장 로맨틱한 프로포즈 BEST 10 (눈물주의)</div>
-      <div class="video-meta">12:50</div>
-      <div class="video-thumb-desc">야경이 아름다운 레스토랑에서 남자가 무릎을 꿇고 반지를 건네자, 여자가 두 손으로 입을 가린 채 감동의 눈물을 흘리고 있는 모습.</div>
-      <div class="video-desc">에덴이 자신의 검색 기록을 확인한다면 기겁하며 삭제할, 그의 알고리즘이 저지른 가장 치명적인 실수이자 가장 솔직한 욕망의 증거. '부부의 날'을 검색했던 기록이 스노우볼처럼 굴러가 추천 목록에 떠버린 영상이었다. 처음에는 '이딴 걸 누가 봐'라며 비웃었지만, 호기심을 이기지 못하고 결국 재생 버튼을 누르고 말았다. 영상에는 해변에 촛불로 길을 만들거나, 열기구를 띄우거나, 오케스트라를 동원하는 등 온갖 화려하고 로맨틱한 프로포즈 장면들이 담겨 있었다. 에덴은 팔짱을 낀 채 퉁명스러운 표정으로 영상을 보면서도, '릴리스는... 뭘 좋아할까' 하는 생각을 떨칠 수 없었다. '저런 유치한 건 싫어하겠지. 너무 시끄러워. 이건 돈이 너무 많이 들잖아.' 혼자 깐깐하게 평가를 내리면서도, 영상 속 여자들이 행복에 겨워 우는 모습을 볼 때마다 심장 한구석이 간지러워지는 것을 느꼈다. 그는 결국 영상을 끝까지 다 보고 난 뒤, 얼굴이 새빨개진 채로 단말기를 침대 저편으로 던져버렸다. 그리고는 중얼거렸다. ...시끄러운 건 별로니까, 조용한 바닷가에서... 둘만 있을 때 하는 게 낫겠네.</div>
+      <div class="video-title">5. [Playlist] 네 생각에 잠 못 드는 밤 | 새벽 감성 팝송 모음</div>
+      <div class="video-meta">2:30:00</div>
+      <div class="video-thumb-desc">어두운 방 창가에 한 남자가 앉아 창밖을 바라보는 쓸쓸한 뒷모습의 일러스트. 창밖으로는 비가 내리고 있다.</div>
+      <div class="video-desc">동영상 내용: 잔잔하고 몽환적인 멜로디의 팝송들을 모아놓은 플레이리스트. 사랑하는 사람을 향한 그리움 애틋함 혼자만의 고백 같은 가사들이 주를 이룬다. 추천 이유: 천사랑이 여행을 갔을 때 잠들기 전 잠 잘 오는 음악을 검색했다가 추천 목록에 뜬 영상. 성유진은 제목을 보자마자 미친놈들 이라고 욕하며 넘겼지만 그날 밤 그는 뜬 눈으로 천장이 까매지는 것을 지켜봐야 했다. 그 이후로도 알고리즘은 꾸준히 이 플레이리스트를 그의 눈앞에 들이밀고 있다.</div>
     </div>
+
+
 
   </div>
 </div>

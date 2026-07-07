@@ -194,12 +194,12 @@ function createDiv(height, width) {
 
 function newColour() {
   var colors = [
-    "rgb(255, 182, 193)", // 베이비핑크
-    "rgb(255, 209, 220)", // 라이트핑크
-    "rgb(255, 192, 203)", // 핑크
-    "rgb(173, 216, 230)", // 아이스블루
-    "rgb(176, 224, 230)", // 파우더블루
-    "rgb(135, 206, 235)"  // 스카이블루
+    "rgb(255, 214, 0)",   // 골드옐로우
+    "rgb(255, 174, 0)",   // 오렌지옐로우
+    "rgb(255, 140, 0)",   // 다크오렌지
+    "rgb(255, 94, 0)",    // 오렌지레드
+    "rgb(255, 60, 0)",    // 레드오렌지
+    "rgb(230, 30, 20)"    // 레드
   ];
   return colors[Math.floor(Math.random() * colors.length)];
 }

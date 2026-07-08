@@ -1,6 +1,9 @@
 @import url('https://cdn.cursors-4u.net/cursors/animated/red-spinning-heart-within-a-heart-403d06ac-32.css');
 
 /* 여기에 나머지 스타일 추가 */
+html {
+  overflow-y: scroll;
+}
 img {
   pointer-events: none;
   -webkit-user-drag: none;

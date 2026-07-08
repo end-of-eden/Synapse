@@ -11,10 +11,10 @@ img {
 }
 
 ::selection {
-  background: #c0392b;
+  background: rgba(224, 87, 74, 0.75);
   color: #f1c40f;
 }
 ::-moz-selection {
-  background: #c0392b;
+  background: rgba(224, 87, 74, 0.75);
   color: #f1c40f;
 }

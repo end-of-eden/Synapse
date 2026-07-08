@@ -2,9 +2,9 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg">  
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Synapse — Gallery</title>
+<title>Synapse — Log</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
 <link rel="stylesheet" href="style.css">
@@ -72,139 +72,69 @@ body {
 .topnav a.active { background: rgba(0,0,0,0.07); color: var(--color-text-primary); }
 .topnav-divider { width: 1px; height: 12px; background: var(--color-border-tertiary); margin: 0 4px; }
 
-.gallery-wrap {
+.log-wrap {
   width: 100%;
   max-width: 960px;
+  height: 580px;
   border: 0.5px solid var(--color-border-tertiary);
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   background: var(--color-background-primary);
   box-shadow: 0 8px 32px rgba(20,20,30,0.10), 0 2px 8px rgba(20,20,30,0.06);
-  height: 580px;
 }
 
-.gallery-scroll {
+.log-scroll {
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 1.75rem;
+  padding: 2.5rem 4rem;
 }
-.gallery-scroll::-webkit-scrollbar { width: 3px; }
-.gallery-scroll::-webkit-scrollbar-track { background: transparent; }
-.gallery-scroll::-webkit-scrollbar-thumb { background: var(--color-border-secondary); border-radius: 99px; }
+.log-scroll::-webkit-scrollbar { width: 3px; }
+.log-scroll::-webkit-scrollbar-track { background: transparent; }
+.log-scroll::-webkit-scrollbar-thumb { background: var(--color-border-secondary); border-radius: 99px; }
 
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-}
-
-.gallery-item {
-  position: relative;
-  aspect-ratio: 1 / 1;
-  border-radius: var(--border-radius-md);
-  overflow: hidden;
-  cursor: pointer;
-  background: var(--color-background-secondary);
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.gallery-item:hover img {
-  transform: scale(1.04);
-}
-
-.gallery-item-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0);
+.log-item {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px;
-  transition: background 0.3s ease;
-}
-
-.gallery-item:hover .gallery-item-overlay {
-  background: rgba(0,0,0,0.55);
-}
-
-.gallery-item-title {
-  font-size: 12px;
-  font-weight: 300;
-  color: rgba(255,255,255,0);
-  letter-spacing: 0.03em;
-  transition: color 0.3s ease;
-  line-height: 1.4;
-  text-align: center;
-}
-
-.gallery-item:hover .gallery-item-title {
-  color: rgba(255,255,255,0.9);
-}
-
-/* 팝업 */
-.popup-bg {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(5,5,8,0.85);
-  z-index: 1000;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(4px);
-}
-.popup-bg.open { display: flex; }
-
-.popup-inner {
-  position: relative;
-  max-width: 800px;
-  width: 90%;
-  border-radius: var(--border-radius-lg);
-  overflow: hidden;
-  box-shadow: 0 24px 64px rgba(0,0,0,0.5);
-}
-
-.popup-inner img {
-  width: 100%;
-  display: block;
-  max-height: 85vh;
-  object-fit: contain;
-  background: #050508;
-}
-
-.popup-title {
-  position: absolute;
-  bottom: 0;
-  left: 0; right: 0;
-  padding: 12px 16px;
-  background: linear-gradient(to top, rgba(5,5,8,0.85) 0%, transparent 100%);
-  font-size: 13px;
-  font-weight: 300;
-  color: rgba(255,255,255,0.9);
-  letter-spacing: 0.03em;
-}
-
-.popup-close {
-  position: absolute;
-  top: 12px; right: 12px;
-  width: 28px; height: 28px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.15);
-  border: none;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding: 1.75rem 0;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
   cursor: pointer;
-  color: #fff;
-  font-size: 14px;
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.15s;
+  transition: opacity 0.15s;
 }
-.popup-close:hover { background: rgba(255,255,255,0.3); }
+.log-item:first-child { padding-top: 0; }
+.log-item:last-child { border-bottom: none; }
+.log-item:hover { opacity: 0.75; }
+
+.log-item-text { flex: 1; min-width: 0; }
+.log-item-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+}
+.log-item-date {
+  font-size: 11px;
+  color: var(--color-text-tertiary);
+  margin-bottom: 8px;
+}
+.log-item-preview {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.log-item-thumb {
+  width: 150px;
+  height: 150px;
+  border-radius: var(--border-radius-md);
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 0.5px solid var(--color-border-tertiary);
+}
 </style>
 </head>
 <body>
@@ -220,63 +150,42 @@ body {
   <div class="topnav-links">
     <a href="wiki.html">Wiki</a>
     <div class="topnav-divider"></div>
-    <a href="gallery.html" class="active">Gallery</a>
+    <a href="gallery.html">Gallery</a>
     <div class="topnav-divider"></div>
-    <a href="log.html">Log</a>
+    <a href="log.html" class="active">Log</a>
   </div>
 </nav>
 
-<div class="gallery-wrap">
-  <div class="gallery-scroll" id="gallery-scroll">
-    <div class="gallery-grid" id="gallery-grid"></div>
-  </div>
-</div>
-
-<!-- 팝업 -->
-<div class="popup-bg" id="popup-bg" onclick="closePopup(event)">
-  <div class="popup-inner">
-    <img id="popup-img" src="" alt="">
-    <div class="popup-title" id="popup-title"></div>
-    <button class="popup-close" onclick="closePopup()">✕</button>
+<div class="log-wrap">
+  <div class="log-scroll" id="log-scroll">
+    <div id="log-list"></div>
   </div>
 </div>
 
 <script>
-// ✏️ 이미지 추가할 때 여기에 한 줄씩 추가하면 됨
-var images = [
-  { src: 'Syndrome_1.png', title: 'SYNDROME', color: 'rgba(255,140,60,0.9)' },
-  { src: 'Seraph_1.png', title: 'SERAPH', color: 'rgba(255,214,0,0.9)' },
+// ✏️ 로그 추가할 때 여기에 한 줄씩 추가
+var logs = [
+  { id: '001', title: '유튜브 시청 기록', date: '2026.06.26', preview: '신드롬의 유튜브 알고리즘에 낱낱이 드러난 그의 진심. 논쟁 필승법부터 커플 마사지, 자기 매드무비, 고양이 심리 영상까지 — 겉으로는 시큰둥한 척해도, 알고리즘은 세라프를 향한 그의 마음을 숨기지 못한다.', thumb: 'img/log/001.jpg' },
+  { id: '002', title: '서로가 생각하는 서로를 닮은 카오모지', date: '2026.06.27', preview: '신드롬이 생각하는 세라프를 닮은 카오모지, 그리고 세라프가 생각하는 신드롬을 닮은 카오모지. 잔뜩 시무룩해진 얼굴부터, 무심한 척 던지는 애정까지 — 서로가 서로를 어떻게 바라보고 있는지 훔쳐볼 수 있는 기록.', thumb: 'img/log/002.jpg' },
+  { id: '003', title: '디저트 오픈런', date: '2026.06.28', preview: '한정판 디저트가 오늘이 마지막이라며 시무룩해하던 세라프의 얼굴을 잊지 못한 신드롬은, 아무도 모르게 새벽 네 시 반에 일어나 다섯 시간 동안 줄을 섰다. 서른한 번째라는 저주받은 숫자와 사장님과의 필사적인 협상 끝에 손에 넣은 상자 하나 — 절대 좋아서 산 게 아니라고, 그는 오늘도 필사적으로 우긴다.', thumb: 'img/log/003.jpg' },
+  { id: '004', title: '뚱뚱해', date: '2026.07.02', preview: '뱅가드 2팀 회식에서 세라프가 따라준 술에 잔뜩 취해 뻗었다가 아침에 눈을 뜬 신드롬은 그녀에게 애정 표현을 시도하지만 그가 치는 모든 달콤한 말은 예외 없이 \'뚱뚱해\'로 바뀌어 전송된다. 범인은 뻔했다 — 복도 건너에서 잠든 척하고 있을 그녀.', thumb: 'img/log/004.jpg' },
 ];
 
-var base = 'https://raw.githubusercontent.com/end-of-eden/Synapse/main/img/gallery/';
+var base = 'https://raw.githubusercontent.com/end-of-eden/Synapse/main/';
 
 function render() {
-  var grid = document.getElementById('gallery-grid');
-  grid.innerHTML = images.map(function(img, i) {
-    return '<div class="gallery-item" onclick="openPopup(' + i + ')">' +
-      '<img src="' + base + img.src + '" alt="' + img.title + '" loading="lazy">' +
-      '<div class="gallery-item-overlay">' +
-      '<div class="gallery-item-title">' + img.title + '</div>' +
-      '</div></div>';
+  var list = document.getElementById('log-list');
+  list.innerHTML = logs.map(function(log) {
+    return '<div class="log-item" onclick="location.href=\'Log/' + log.id + '.html\'">' +
+      '<div class="log-item-text">' +
+      '<div class="log-item-title">' + log.title + '</div>' +
+      '<div class="log-item-date">' + log.date + '</div>' +
+      '<div class="log-item-preview">' + log.preview + '</div>' +
+      '</div>' +
+      '<img class="log-item-thumb" src="' + base + log.thumb + '" alt="' + log.title + '" loading="lazy">' +
+      '</div>';
   }).join('');
 }
-
-function openPopup(i) {
-  var img = images[i];
-  document.getElementById('popup-img').src = base + img.src;
-  document.getElementById('popup-title').textContent = img.title;
-  document.getElementById('popup-bg').classList.add('open');
-}
-
-function closePopup(e) {
-  if (!e || e.target === document.getElementById('popup-bg') || e.currentTarget.classList.contains('popup-close')) {
-    document.getElementById('popup-bg').classList.remove('open');
-  }
-}
-
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closePopup();
-});
 
 render();
 

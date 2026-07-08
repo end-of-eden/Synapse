@@ -268,6 +268,19 @@
   window.addEventListener('resize', reposition);
   window.addEventListener('load', reposition);
   reposition();
-  // 이미지 로딩 등으로 레이아웃이 늦게 안정되는 경우 대비
-  setTimeout(reposition, 300);
+  // 카드 크기가 실제로 바뀔 때마다(이미지 로딩 등) 자동으로 재계산 — 타이머 땜빵 대신 정확하게 감지
+  if (window.ResizeObserver) {
+    var host = document.querySelector('.wiki-wrap, .gallery-wrap, .log-wrap, .detail-wrap, .post-wrap');
+    if (host) {
+      var ro = new ResizeObserver(reposition);
+      ro.observe(host);
+    }
+    // 스탠딩 이미지 등 개별 이미지 로딩 완료 시점도 감지
+    document.querySelectorAll('img').forEach(function (img) {
+      if (!img.complete) img.addEventListener('load', reposition, { once: true });
+    });
+  } else {
+    // ResizeObserver 미지원 브라우저 대비 최소한의 폴백
+    setTimeout(reposition, 300);
+  }
 })();

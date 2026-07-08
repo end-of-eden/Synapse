@@ -9,8 +9,10 @@
     box-shadow: 0 4px 14px rgba(20,20,30,0.14);
     display: flex; align-items: center; justify-content: center;
     cursor: pointer; color: var(--color-text-primary, #17171b); font-size: 17px;
-    transition: transform 0.15s, background 0.15s;
+    transition: transform 0.15s, background 0.15s, opacity 0.25s ease;
+    opacity: 0; pointer-events: none;
   }
+  .msg-fab.ready { opacity: 1; pointer-events: auto; }
   .msg-fab:hover { transform: scale(1.06); background: var(--color-background-tertiary, #e8e8ec); }
   .msg-fab .dot {
     position: absolute; top: 4px; right: 4px; width: 7px; height: 7px; border-radius: 50%;
@@ -266,21 +268,36 @@
     panel.style.top = (fabTop - GAP_PANEL - panel.offsetHeight) + 'px';
   }
   window.addEventListener('resize', reposition);
-  window.addEventListener('load', reposition);
   reposition();
   // 카드 크기가 실제로 바뀔 때마다(이미지 로딩 등) 자동으로 재계산 — 타이머 땜빵 대신 정확하게 감지
-  if (window.ResizeObserver) {
-    var host = document.querySelector('.wiki-wrap, .gallery-wrap, .log-wrap, .detail-wrap, .post-wrap');
-    if (host) {
-      var ro = new ResizeObserver(reposition);
-      ro.observe(host);
-    }
-    // 스탠딩 이미지 등 개별 이미지 로딩 완료 시점도 감지
-    document.querySelectorAll('img').forEach(function (img) {
-      if (!img.complete) img.addEventListener('load', reposition, { once: true });
-    });
+  var host = document.querySelector('.wiki-wrap, .gallery-wrap, .log-wrap, .detail-wrap, .post-wrap');
+  if (window.ResizeObserver && host) {
+    var ro = new ResizeObserver(reposition);
+    ro.observe(host);
+  }
+
+  // 위치가 확정되기 전까지는 숨겨뒀다가, 모든 이미지 로딩이 끝난 뒤 한 번에 자연스럽게 표시
+  var imgs = Array.prototype.slice.call(document.querySelectorAll('img'));
+  var pending = imgs.filter(function (img) { return !img.complete; });
+  function reveal() {
+    reposition();
+    requestAnimationFrame(function () { fab.classList.add('ready'); });
+  }
+  if (pending.length === 0) {
+    reveal();
   } else {
-    // ResizeObserver 미지원 브라우저 대비 최소한의 폴백
-    setTimeout(reposition, 300);
+    var remaining = pending.length;
+    pending.forEach(function (img) {
+      img.addEventListener('load', function () {
+        remaining--;
+        if (remaining <= 0) reveal();
+      }, { once: true });
+      img.addEventListener('error', function () {
+        remaining--;
+        if (remaining <= 0) reveal();
+      }, { once: true });
+    });
+    // 혹시 이미지가 끝까지 로드 실패해도 무한정 숨겨져 있지 않도록 최소한의 안전장치
+    setTimeout(reveal, 1500);
   }
 })();

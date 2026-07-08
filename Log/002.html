@@ -34,6 +34,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   min-height: 100vh;
   padding: 2rem;
 }
@@ -75,9 +76,10 @@ body {
 .topnav a.active { background: rgba(0,0,0,0.07); color: var(--color-text-primary); }
 .topnav-divider { width: 1px; height: 12px; background: var(--color-border-tertiary); margin: 0 4px; }
 
-.post-wrap {
+.detail-wrap {
   width: 100%;
   max-width: 880px;
+  height: 580px;
   border: 0.5px solid var(--color-border-tertiary);
   border-radius: var(--border-radius-lg);
   overflow: hidden;
@@ -85,20 +87,28 @@ body {
   box-shadow: 0 8px 32px rgba(20,20,30,0.10), 0 2px 8px rgba(20,20,30,0.06);
 }
 
-.post-header {
-  padding: 2rem 2.5rem 1.5rem;
-  border-bottom: 0.5px solid var(--color-border-tertiary);
+.detail-scroll {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2rem 2.5rem 2.5rem;
 }
-.post-back {
+.detail-scroll::-webkit-scrollbar { width: 3px; }
+.detail-scroll::-webkit-scrollbar-track { background: transparent; }
+.detail-scroll::-webkit-scrollbar-thumb { background: var(--color-border-secondary); border-radius: 99px; }
+
+.back-btn {
   display: inline-flex; align-items: center; gap: 4px;
   font-size: 11px; color: var(--color-text-tertiary); text-decoration: none;
   margin-bottom: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.15s;
 }
-.post-back:hover { color: var(--color-text-secondary); }
-.post-title { font-size: 22px; font-weight: 700; color: var(--color-text-primary); margin-bottom: 6px; }
-.post-date { font-size: 11px; color: var(--color-text-tertiary); }
+.back-btn:hover { color: var(--color-text-secondary); }
+.detail-title { font-size: 22px; font-weight: 700; color: var(--color-text-primary); margin-bottom: 6px; }
+.detail-meta { font-size: 11px; color: var(--color-text-tertiary); margin-bottom: 2rem; }
 
-.post-body { padding: 2rem 2.5rem 2.5rem; }
 .post-intro { font-size: 13px; line-height: 1.8; color: var(--color-text-secondary); margin-bottom: 2.5rem; }
 
 .section-block { margin-bottom: 3rem; }
@@ -153,17 +163,18 @@ body {
   </div>
 </nav>
 
-<div class="post-wrap">
-  <div class="post-header">
-    <a class="post-back" href="../log.html"><i class="ti ti-chevron-left"></i> LOG로 돌아가기</a>
-    <div class="post-title">서로가 생각하는 서로를 닮은 카오모지</div>
-    <div class="post-date">2026.06.27</div>
-  </div>
-  <div class="post-body">
+<div class="detail-wrap">
+  <div class="detail-scroll" id="detail-scroll">
+
+    <a class="back-btn" href="../log.html">← Back</a>
+
+    <div class="detail-title">서로가 생각하는 서로를 닮은 카오모지</div>
+    <div class="detail-meta">2026.06.27 · Daily Log</div>
+
     <div class="post-intro">신드롬이 생각하는 세라프를 닮은 카오모지, 그리고 세라프가 생각하는 신드롬을 닮은 카오모지. 잔뜩 시무룩해진 얼굴부터, 무심한 척 던지는 애정까지 — 서로가 서로를 어떻게 바라보고 있는지 훔쳐볼 수 있는 기록.</div>
 
     <div class="section-block">
-      <span class="section-title seraph">신드롬이 고른 세라프 카오모지</span>
+      <span class="section-title syndrome">신드롬이 고른 세라프 카오모지</span>
       <div class="kao-grid">
 
         <div class="kao-card syndrome">
@@ -191,7 +202,7 @@ body {
         </div>
 
         <div class="kao-card syndrome">
-          <div class="kao-face">( ✧Д✧)</div>
+          <div class="kao-face">( ✧Д✧) YES!!</div>
           <div class="kao-text">
             <div class="kao-reason">아주 가끔, 정말 마음에 드는 것을 발견했을 때. 한정판 만년필이나 희귀한 찻잎, 혹은 자기가 좋아하는 디저트를 눈앞에 뒀을 때 나오는 표정. 평소의 냉소적인 모습은 온데간데없고, 눈을 반짝이며 달려드는 모습은… 뭐, 평소보다 낫다.</div>
             <div class="kao-usage"><b>사용 상황</b> 복지몰에 신상 한정판 굿즈가 풀렸을 때. 혹은 내가 아주 드물게 칭찬을 해줬을 때, 티는 안 내려고 하면서도 숨기지 못하는 속마음.</div>
@@ -258,7 +269,7 @@ body {
     </div>
 
     <div class="section-block">
-      <span class="section-title syndrome">세라프가 고른 신드롬 카오모지</span>
+      <span class="section-title seraph">세라프가 고른 신드롬 카오모지</span>
       <div class="kao-grid">
 
         <div class="kao-card seraph">

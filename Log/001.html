@@ -88,11 +88,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
   padding: 2.5rem 4rem;
-  cursor: grab;
-  user-select: none;
-  -webkit-user-select: none;
 }
-.detail-scroll.dragging { cursor: grabbing; }
 .detail-scroll::-webkit-scrollbar { width: 3px; }
 .detail-scroll::-webkit-scrollbar-track { background: transparent; }
 .detail-scroll::-webkit-scrollbar-thumb { background: var(--color-border-secondary); border-radius: 99px; }
@@ -302,8 +298,8 @@ body {
     <button class="music-btn" id="music-btn" onclick="toggleMusic()" aria-label="재생">
       <i class="ti ti-player-play" id="music-icon"></i>
     </button>
-    <span class="music-title">Avicii — SOS ft. Aloe Blacc</span>
-    <audio id="bgm" src="../Avicii - SOS (Fan Memories Video) ft. Aloe Blacc.mp3" loop></audio>
+    <span class="music-title">LE SSERAFIM — HOT</span>
+    <audio id="bgm" src="../LE SSERAFIM - HOT.mp3" loop></audio>
   </div>
   <div class="topnav-links">
     <a href="../wiki.html">Wiki</a>
@@ -398,18 +394,6 @@ body {
 </div>
 
 <script>
-var scrollEl = document.getElementById('detail-scroll');
-var isDown = false, startY = 0, scrollTop = 0;
-scrollEl.addEventListener('mousedown', function(e) {
-  isDown = true; startY = e.pageY - scrollEl.offsetTop; scrollTop = scrollEl.scrollTop;
-  scrollEl.classList.add('dragging');
-});
-document.addEventListener('mouseup', function() { isDown = false; scrollEl.classList.remove('dragging'); });
-scrollEl.addEventListener('mousemove', function(e) {
-  if (!isDown) return;
-  e.preventDefault();
-  scrollEl.scrollTop = scrollTop - (e.pageY - scrollEl.offsetTop - startY);
-});
 
 function toggleMusic() {
   var audio = document.getElementById("bgm");

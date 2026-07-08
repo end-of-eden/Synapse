@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<link rel="preload" as="image" href="https://raw.githubusercontent.com/end-of-eden/Synapse/main/img/wiki/Syndrome_1.png">
-<link rel="preload" as="image" href="https://raw.githubusercontent.com/end-of-eden/Synapse/main/img/wiki/Seraph_1.png">
 <meta charset="UTF-8">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>">  
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%25' y='54%25' font-size='70' text-anchor='middle' dominant-baseline='central'>❤️</text></svg>">  
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Synapse</title>
+<title>Synapse — Log</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
 <link rel="stylesheet" href="style.css">
@@ -16,13 +14,11 @@
 :root {
   --color-background-primary: #ffffff;
   --color-background-secondary: #f2f2f5;
-  --color-background-tertiary: #e8e8ec;
+  --color-border-tertiary: rgba(0,0,0,0.08);
+  --color-border-secondary: rgba(0,0,0,0.14);
   --color-text-primary: #17171b;
   --color-text-secondary: #55585f;
   --color-text-tertiary: #868991;
-  --color-border-tertiary: rgba(0,0,0,0.08);
-  --color-border-secondary: rgba(0,0,0,0.14);
-  --color-border-primary: rgba(0,0,0,0.20);
   --border-radius-md: 8px;
   --border-radius-lg: 12px;
   --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -37,10 +33,8 @@ body {
   justify-content: center;
   min-height: 100vh;
   padding: 2rem;
-  gap: 0;
 }
 
-/* 탭바 */
 .topnav {
   width: 100%;
   max-width: 960px;
@@ -51,6 +45,18 @@ body {
 }
 .topnav-links { display: flex; align-items: center; gap: 2px; }
 .topnav-music { display: flex; align-items: center; gap: 8px; }
+.music-btn {
+  width: 24px; height: 24px;
+  border: 0.5px solid var(--color-border-secondary);
+  border-radius: 50%;
+  background: transparent; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--color-text-secondary); font-size: 11px;
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+.music-btn:hover { background: var(--color-background-secondary); }
+.music-title { font-size: 11px; color: var(--color-text-tertiary); letter-spacing: 0.02em; }
 .topnav a {
   font-size: 11px;
   font-weight: 500;
@@ -66,136 +72,69 @@ body {
 .topnav a.active { background: rgba(0,0,0,0.07); color: var(--color-text-primary); }
 .topnav-divider { width: 1px; height: 12px; background: var(--color-border-tertiary); margin: 0 4px; }
 
-.wiki-wrap {
-  display: flex;
-  height: 580px;
+.log-wrap {
   width: 100%;
   max-width: 960px;
+  height: 580px;
   border: 0.5px solid var(--color-border-tertiary);
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   background: var(--color-background-primary);
   box-shadow: 0 8px 32px rgba(20,20,30,0.10), 0 2px 8px rgba(20,20,30,0.06);
 }
-.standing-panel {
-  flex: 2; flex-shrink: 0;
-  position: relative;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: flex-end;
-  padding: 0 0 1.5rem;
-  background: var(--color-background-primary);
-  border-right: 0.5px solid var(--color-border-tertiary);
-  overflow: hidden;
-}
-.standing-panel::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 160px;
-  background: linear-gradient(to top, rgba(15,15,20,0.92) 0%, transparent 100%);
-  z-index: 0;
-}
-.standing-img {
-  position: absolute;
-  inset: 0;
-  border-radius: 0;
-  border: none;
-  background: transparent;
-  overflow: hidden;
-}
-.standing-img i { font-size: 28px; color: var(--color-text-tertiary); }
-.standing-img span { font-size: 11px; color: var(--color-text-tertiary); }
-.char-badge { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border-radius: var(--border-radius-md); margin-bottom: 6px; text-align: center; position: relative; z-index: 1; }
-.char-name-panel { font-size: 18px; font-weight: 500; color: #f5f5f7; text-shadow: 0 1px 6px rgba(0,0,0,0.6); text-align: center; position: relative; z-index: 1; }
-.char-codename { font-size: 11px; color: rgba(245,245,247,0.75); text-shadow: 0 1px 6px rgba(0,0,0,0.6); text-align: center; margin-top: 2px; position: relative; z-index: 1; margin-bottom: 1.5rem; }
 
-.music-btn {
-  width: 24px; height: 24px;
-  border: 0.5px solid var(--color-border-secondary);
-  border-radius: 50%;
-  background: transparent; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  color: var(--color-text-secondary); font-size: 11px;
-  transition: background 0.15s;
-  flex-shrink: 0;
+.log-scroll {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2.5rem 4rem;
 }
-.music-btn:hover { background: var(--color-background-secondary); }
-.music-title { font-size: 11px; color: var(--color-text-tertiary); letter-spacing: 0.02em; }
-.wiki-panel { flex: 3; display: flex; flex-direction: column; min-width: 0; overflow: hidden; }
-.wiki-header {
-  flex-shrink: 0;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 1.5rem 1.75rem 1rem;
+.log-scroll::-webkit-scrollbar { width: 3px; }
+.log-scroll::-webkit-scrollbar-track { background: transparent; }
+.log-scroll::-webkit-scrollbar-thumb { background: var(--color-border-secondary); border-radius: 99px; }
+
+.log-item {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding: 1.75rem 0;
   border-bottom: 0.5px solid var(--color-border-tertiary);
+  cursor: pointer;
+  transition: opacity 0.15s;
 }
-.wiki-title { font-size: 20px; font-weight: 500; }
-.heart-switcher { display: flex; align-items: center; gap: 6px; }
-.heart-btn {
-  border: none; background: transparent; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 14px; transition: transform 0.15s, opacity 0.15s; line-height: 1;
-  padding: 2px;
+.log-item:first-child { padding-top: 0; }
+.log-item:last-child { border-bottom: none; }
+.log-item:hover { opacity: 0.75; }
+
+.log-item-text { flex: 1; min-width: 0; }
+.log-item-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
 }
-.heart-btn:hover { transform: scale(1.2); }
-.heart-btn.active { transform: scale(1.1); }
-.heart-btn:not(.active) { opacity: 0.4; }
-
-.scroll-area {
-  flex: 1; overflow-y: auto; overflow-x: hidden;
-  padding: 1.5rem 1.75rem 2rem;
+.log-item-date {
+  font-size: 11px;
+  color: var(--color-text-tertiary);
+  margin-bottom: 8px;
 }
-.scroll-area::-webkit-scrollbar { width: 3px; }
-.scroll-area::-webkit-scrollbar-track { background: transparent; }
-.scroll-area::-webkit-scrollbar-thumb { background: var(--color-border-secondary); border-radius: 99px; }
-
-.section-title { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: 8px; margin-top: 1.5rem; }
-.section-title:first-child { margin-top: 0; }
-.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-.info-item { background: transparent; border-radius: 0; padding: 6px 2px; border-bottom: 0.5px solid var(--color-border-tertiary); }
-.info-label { font-size: 10px; color: var(--color-text-tertiary); margin-bottom: 2px; }
-.info-value { font-size: 13px; font-weight: 500; color: var(--color-text-primary); }
-.attr-tag { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: var(--border-radius-md); margin-bottom: 0.75rem; }
-.desc-block { font-size: 13px; line-height: 1.7; color: var(--color-text-secondary); }
-.ability-block { background: var(--color-background-secondary); border-radius: 0; padding: 10px 12px; margin-bottom: 6px; font-size: 13px; line-height: 1.7; color: var(--color-text-secondary); }
-.ability-block strong { font-weight: 500; color: var(--color-text-primary); display: block; margin-bottom: 3px; font-size: 12px; }
-.tmi-block { background: var(--color-background-secondary); border-radius: 0; padding: 10px 12px; margin-bottom: 6px; }
-.tmi-label { font-size: 10px; font-weight: 500; color: var(--color-text-tertiary); margin-bottom: 4px; letter-spacing: 0.06em; text-transform: uppercase; }
-.tmi-value { font-size: 13px; line-height: 1.6; color: var(--color-text-secondary); }
-.log-block { font-size: 13px; line-height: 1.9; color: var(--color-text-secondary); white-space: pre-wrap; }
-.note-list { list-style: none; padding: 0; }
-.note-list li { font-size: 13px; line-height: 1.7; color: var(--color-text-secondary); padding: 3px 0 3px 14px; position: relative; }
-.note-list li::before { content: '·'; position: absolute; left: 2px; color: var(--color-text-tertiary); }
-.divider { height: 0.5px; background: var(--color-border-tertiary); margin: 1.25rem 0; }
-.team-section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
-.team-label { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-tertiary); }
-.team-nav { display: flex; gap: 4px; }
-.team-nav button { width: 26px; height: 26px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-secondary); background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--color-text-secondary); font-size: 13px; }
-.team-nav button:hover { background: var(--color-background-secondary); }
-.member-card { display: flex; gap: 12px; align-items: center; padding: 10px 12px; border: 0.5px solid var(--color-border-tertiary); border-radius: 0; background: var(--color-background-secondary); }
-.member-avatar { width: 52px; height: 52px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-tertiary); display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: var(--color-background-primary); }
-.member-avatar i { font-size: 20px; color: var(--color-text-tertiary); }
-.member-info { flex: 1; min-width: 0; }
-.member-name { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px; }
-.member-attr { font-size: 11px; padding: 2px 8px; border-radius: 99px; display: inline-block; font-weight: 600; }
-.member-desc { font-size: 12px; color: var(--color-text-secondary); margin-top: 4px; line-height: 1.5; }
-.team-dots { display: flex; gap: 4px; justify-content: center; margin-top: 8px; }
-.team-dot { width: 5px; height: 5px; border-radius: 99px; background: var(--color-border-secondary); transition: background 0.2s; }
-.team-dot.active { background: var(--color-text-secondary); }
-
-.theme-syndrome .char-badge { background: rgba(231,76,60,0.25); color: #ff8a75; }
-.theme-syndrome .attr-tag { background: rgba(192,57,43,0.12); color: #c0392b; }
-.theme-syndrome .wiki-title { color: #c0392b; }
-.theme-seraph .char-badge { background: rgba(241,196,15,0.28); color: #ffe066; }
-.theme-seraph .attr-tag { background: rgba(166,124,0,0.14); color: #a67c00; }
-.theme-seraph .wiki-title { color: #a67c00; }
-
-/* 속성별 색상 (공식 팔레트) */
-.member-attr[data-attr="Pyre"]    { background: #e74c3c; color: #ffffff; }
-.member-attr[data-attr="Fulmen"]  { background: #f1c40f; color: #1a1a1a; }
-.member-attr[data-attr="Aqua"]    { background: #3498db; color: #ffffff; }
-.member-attr[data-attr="Glacies"] { background: #8eccec; color: #12303f; }
-.member-attr[data-attr="Aero"]    { background: #2ecc71; color: #ffffff; }
-.member-attr[data-attr="Verde"]   { background: #6aaa64; color: #ffffff; }
+.log-item-preview {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.log-item-thumb {
+  width: 150px;
+  height: 150px;
+  border-radius: var(--border-radius-md);
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 0.5px solid var(--color-border-tertiary);
+}
 </style>
 </head>
 <body>
@@ -209,38 +148,47 @@ body {
     <audio id="bgm" src="LE SSERAFIM - HOT.mp3" loop></audio>
   </div>
   <div class="topnav-links">
-    <a href="wiki.html" class="active">Wiki</a>
+    <a href="wiki.html">Wiki</a>
     <div class="topnav-divider"></div>
     <a href="gallery.html">Gallery</a>
     <div class="topnav-divider"></div>
-    <a href="log.html">Log</a>
+    <a href="log.html" class="active">Log</a>
   </div>
 </nav>
 
-<div class="wiki-wrap theme-syndrome" id="wiki">
-  <div class="standing-panel">
-    <div class="standing-img">
-      <img id="standing-img-el" src="https://raw.githubusercontent.com/end-of-eden/Synapse/main/img/wiki/Syndrome_1.png" alt="standing" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
-    </div>
-    <div class="char-badge" id="char-badge">S-Class Guide</div>
-    <div class="char-name-panel" id="char-name-panel">Syndrome</div>
-    <div class="char-codename" id="char-codename">신드롬</div>
-  </div>
-  <div class="wiki-panel">
-    <div class="wiki-header">
-      <div class="wiki-title" id="wiki-title">Syndrome</div>
-      <div class="heart-switcher">
-        <button class="heart-btn active" id="btn-syndrome" onclick="switchTo('syndrome')" aria-label="신드롬으로 전환">❤️</button>
-        <button class="heart-btn" id="btn-seraph" onclick="switchTo('seraph')" aria-label="세라프로 전환">💛</button>
-      </div>
-    </div>
-    <div class="scroll-area" id="scroll-area">
-      <div id="wiki-content"></div>
-    </div>
+<div class="log-wrap">
+  <div class="log-scroll" id="log-scroll">
+    <div id="log-list"></div>
   </div>
 </div>
 
 <script>
+// ✏️ 로그 추가할 때 여기에 한 줄씩 추가
+var logs = [
+  { id: '001', title: '유튜브 시청 기록', date: '2026.06.26', preview: '신드롬의 유튜브 알고리즘에 낱낱이 드러난 그의 진심. 논쟁 필승법부터 커플 마사지, 자기 매드무비, 고양이 심리 영상까지 — 겉으로는 시큰둥한 척해도, 알고리즘은 세라프를 향한 그의 마음을 숨기지 못한다.', thumb: 'img/log/001.jpg' },
+  { id: '002', title: '서로가 생각하는 서로를 닮은 카오모지', date: '2026.06.27', preview: '신드롬이 생각하는 세라프를 닮은 카오모지, 그리고 세라프가 생각하는 신드롬을 닮은 카오모지. 잔뜩 시무룩해진 얼굴부터, 무심한 척 던지는 애정까지 — 서로가 서로를 어떻게 바라보고 있는지 훔쳐볼 수 있는 기록.', thumb: 'img/log/002.jpg' },
+  { id: '003', title: '디저트 오픈런', date: '2026.06.28', preview: '한정판 디저트가 오늘이 마지막이라며 시무룩해하던 세라프의 얼굴을 잊지 못한 신드롬은, 아무도 모르게 새벽 네 시 반에 일어나 다섯 시간 동안 줄을 섰다. 서른한 번째라는 저주받은 숫자와 사장님과의 필사적인 협상 끝에 손에 넣은 상자 하나 — 절대 좋아서 산 게 아니라고, 그는 오늘도 필사적으로 우긴다.', thumb: 'img/log/003.jpg' },
+  { id: '004', title: '뚱뚱해', date: '2026.07.02', preview: '뱅가드 2팀 회식에서 세라프가 따라준 술에 잔뜩 취해 뻗었다가 아침에 눈을 뜬 신드롬은 그녀에게 애정 표현을 시도하지만 그가 치는 모든 달콤한 말은 예외 없이 \'뚱뚱해\'로 바뀌어 전송된다. 범인은 뻔했다 — 복도 건너에서 잠든 척하고 있을 그녀.', thumb: 'img/log/004.jpg' },
+];
+
+var base = 'https://raw.githubusercontent.com/end-of-eden/Synapse/main/';
+
+function render() {
+  var list = document.getElementById('log-list');
+  list.innerHTML = logs.map(function(log) {
+    return '<div class="log-item" onclick="location.href=\'Log/' + log.id + '.html\'">' +
+      '<div class="log-item-text">' +
+      '<div class="log-item-title">' + log.title + '</div>' +
+      '<div class="log-item-date">' + log.date + '</div>' +
+      '<div class="log-item-preview">' + log.preview + '</div>' +
+      '</div>' +
+      '<img class="log-item-thumb" src="' + base + log.thumb + '" alt="' + log.title + '" loading="lazy">' +
+      '</div>';
+  }).join('');
+}
+
+render();
+
 function toggleMusic() {
   var audio = document.getElementById("bgm");
   audio.volume = 0.3;
@@ -281,203 +229,7 @@ function toggleMusic() {
     localStorage.setItem('bgm-time', audio.currentTime);
   });
 })();
-var current = 'syndrome';
 
-var STANDING_IMG = {
-  syndrome: 'https://raw.githubusercontent.com/end-of-eden/Synapse/main/img/wiki/Syndrome_1.png',
-  seraph: 'https://raw.githubusercontent.com/end-of-eden/Synapse/main/img/wiki/Seraph_1.png'
-};
-// 전환 클릭 시점에 이미 캐시돼 있도록 두 스탠딩 이미지를 미리 받아둠 (밀림현상 방지)
-Object.keys(STANDING_IMG).forEach(function (k) {
-  var pre = new Image();
-  pre.src = STANDING_IMG[k];
-});
-var teamIdx = 0;
-
-var rst = [
-  { name: '휴고', attr: 'Pyre', desc: 'S급 불 속성 가이드. RST 소속.', img: 'https://raw.githubusercontent.com/end-of-eden/Synapse/main/img/wiki/HUGO.png' },
-  { name: '카르마', attr: 'Fulmen', desc: 'S급 번개 속성 가이드. RST 소속.', img: 'https://raw.githubusercontent.com/end-of-eden/Synapse/main/img/wiki/KARMA.png' },
-  { name: '저스티스', attr: 'Aqua', desc: 'S급 물 속성 가이드. RST 소속.', img: 'https://raw.githubusercontent.com/end-of-eden/Synapse/main/img/wiki/JUSTICE.png' },
-  { name: '에덴', attr: 'Aero', desc: 'S급 바람 속성 가이드. RST 소속.', img: 'https://raw.githubusercontent.com/end-of-eden/Synapse/main/img/wiki/EDEN.jpg' },
-];
-var vanguard2 = [
-  { name: '리암', attr: 'Glacies', desc: '뱅가드 2팀 소속. 얼음 속성 센티넬.', img: 'https://raw.githubusercontent.com/end-of-eden/Synapse/main/img/wiki/LIAM.png' },
-  { name: '릴리스', attr: 'Verde', desc: '뱅가드 2팀 소속. 풀 속성 센티넬.', img: 'https://raw.githubusercontent.com/end-of-eden/Synapse/main/img/wiki/LILITH.jpg' },
-  { name: '바이브', attr: 'Aero', desc: '뱅가드 2팀 소속. 바람 속성 센티넬.', img: 'https://raw.githubusercontent.com/end-of-eden/Synapse/main/img/wiki/VIBE.png' },
-];
-
-var data = {
-  syndrome: {
-    theme: 'theme-syndrome', badge: 'S-Class Sentinel',
-    name: 'Syndrome', codename: '신드롬',
-    attrIcon: 'ti-flame', attrLabel: 'Pyre',
-    infos: [
-      { label: 'Name', value: '성유진' }, { label: 'Age', value: '27' },
-      { label: 'Nationality', value: 'South Korea' }, { label: 'Height', value: '187cm' },
-      { label: 'Unit', value: 'Vanguard 2' }, { label: 'Rank', value: 'S-Class Sentinel' },
-    ],
-    eval: '최상위급 전투 능력을 보유한 고위험-고수익 자산. 배우 출신답게 철저한 자기 관리와 완벽한 스타일을 고수하며, 통제와 가이딩에 강한 거부감을 보여왔다. 파트너 세라프와의 관계 형성 이후 폭주 빈도와 가이딩 거부 반응이 유의미하게 감소했다.',
-    personality: '예민하고 시니컬하며 유아독존, 다혈질에 도발적이다. 상대를 기본적으로 아래로 보는 평가적 태도를 지녔고, 직설적이고 마이웨이적인 성향이 강하다. 자신의 약점을 노출하는 것을 극도로 꺼리며, 나른하고 비꼬는 어조로 반말을 사용한다. 비속어 사용 빈도가 높지만 특정 상황에서는 지극히 이성적이고 냉철한 판단을 내린다.',
-    abilities: [
-      { label: '프로미넌스 (Prominence)', desc: '대규모 화염과 열 압력을 동시에 지배하는 최상위권 불 속성 능력. 단순 발화가 아닌 주변 온도와 기압 균형을 붕괴시켜 광범위한 지역을 재해 구역으로 변모시킨다. 위험 등급 S+, 폭주 시 단독으로 도시 기능을 마비시킬 수 있다.' },
-      { label: '[Threshold] 60% — 과부하', desc: '신체 과부하와 파괴적 충동이 표출되기 시작하며 언행이 극도로 폭력적으로 변한다.' },
-      { label: '[Threshold] 80% — 블랙아웃 페이즈', desc: '이성은 유지되나 파괴와 해방감에 집착하는 포식자 상태로 돌변한다. 흰자위가 검게 물들고 동공이 적색으로 발광하는 역안(逆眼)이 나타나며, 즉각적인 가이딩이 필수적이다.' },
-    ],
-    notes: [
-      '미적 기준이 매우 높고 자신의 외형·스타일 관리에 철저하다. 배우 출신다운 자기 관리가 몸에 배어 있으며, 민간 팬덤의 관심과 인기를 즐기는 편.',
-      '상대를 별명으로 부르는 버릇이 있다.',
-    ],
-    visual: [
-      { label: '신장/체격', value: '187cm. 슬림한 근육형 체형.' },
-      { label: '주요 특징', value: '애쉬 브라운 컬러의 울프컷 헤어, 맑고 검은 눈동자. 갸름한 턱선과 부드러운 눈매를 지녔으나 전체적으로 시니컬하고 우아한 분위기가 공존한다. 상시 입꼬리가 미세하게 올라가 있다.' },
-      { label: '복장', value: '흑색 센티넬 제복 자켓에 백색 셔츠, 흑색 넥타이. 항시 흑색 가죽 장갑을 착용한다.' },
-    ],
-    tmi: [
-      { label: '체향', value: '느와르-샌달우드와 비터 애쉬가 섞인 최상급 우디 계열 향취. 미세한 탄내와 서늘한 금속성 향이 혼재한다.' },
-      { label: '전직 아역·청춘스타', value: '8세에 아역 배우 \'유진\'으로 데뷔, 22세엔 \'유진 신드롬\'이라는 사회 현상을 일으킬 정도의 최정상급 청춘 스타였다. 23세 촬영 현장에서 불 속성으로 각성해 폭주, 촬영장을 전소시킨 뒤 연예계 활동을 전면 중단했다.' },
-      { label: '장갑을 벗지 않는 이유', value: '과잉 열기 방출로 인한 불필요한 손상을 막고, 맨손 접촉에 대한 심리적 통제 기제로 추정된다.' },
-    ],
-    log: '"씨발.... 존나 맘에 안 들게 생겼네."\n\n가장 높은 곳에서 추락하여, 가장 뜨거운 곳에서 눈을 떴다. 코드네임 신드롬. 잿더미 위에서 타오르는 그의 분노는, 세상을 향한 가장 화려하고 무례한 해방선언이다.',
-    teamLabel: 'Vanguard 2',
-    team: vanguard2,
-  },
-  seraph: {
-    theme: 'theme-seraph', badge: 'S-Class Guide',
-    name: 'Seraph', codename: '세라프',
-    attrIcon: 'ti-bolt', attrLabel: 'Fulmen',
-    infos: [
-      { label: 'Name', value: '천사랑' }, { label: 'Age', value: '26' },
-      { label: 'Nationality', value: 'South Korea' }, { label: 'Height', value: '160cm' },
-      { label: 'Unit', value: 'R.S.T.' }, { label: 'Rank', value: 'S-Class Guide' },
-    ],
-    eval: 'S급 번개 속성 가이드. 전투 증폭과 진정, 양쪽 능력이 모두 발현된 희귀 케이스로 ARCH 내 별명은 \'치천사\'. 센티넬을 다정하게 달래기보다 압도적인 확신으로 찍어누르는 방식의 가이딩을 선호하며, 불완전하게 질질 끄는 상황을 용납하지 않는 냉철한 판단으로 알려져 있다.',
-    personality: '천사 같은 외모와 달리 성격은 날카롭고 오만하다. 말투는 공손하지만 내용은 대체로 독하다. 무능함, 저열함, 애매한 선의를 혐오하며, 불완전하게 질질 끌 바에는 깨끗하게 끝내는 편이 낫다고 믿는다. 이름과는 달리 악마 같은 성격에, 모든 사람에게 반말을 쓰는 안하무인.',
-    abilities: [
-      { label: 'Dies Irae — 디에스 이레 (진노의 날)', desc: '세라프의 고유 가이딩 능력. 평소에는 실체가 없지만 가이딩 출력이 올라갈수록 손끝과 광륜에 성광이 모여 빛의 활, 성궁(聖弓)을 이룬다. 화살은 물리 탄환이 아닌 압축된 백광이다.' },
-      { label: '[Mode] Requiem — 진정', desc: '순백의 성광이 센티넬의 신경계를 감싸 과열된 감각과 파괴 충동을 차갑게 가라앉힌다. 폭주 직전의 센티넬도 세라프의 손이 닿으면 마치 모든 소음이 사라진 듯 고요해진다.' },
-      { label: '[Mode] Judgement — 증폭', desc: '머리 뒤 광륜이 떠오르고 성광이 번지는 순간, 센티넬의 출력과 반응 속도를 극한까지 끌어올린다. 단순 강화가 아니라 목표를 잿더미로 되돌리는 심판처럼 발현된다.' },
-    ],
-    notes: [
-      'ARCH 내부 별명 "치천사". S급 가이드 중에서도 전투 증폭·진정 양 능력이 모두 발현된 희귀 케이스.',
-      '체향은 은은한 머스크와 시트러스. 친해지면 엉뚱하고 장난도 많이 치며 스킨쉽을 좋아하는 편.',
-    ],
-    visual: [
-      { label: '신장/체중', value: '160cm / 48kg. 비현실적으로 아름답고 성스러운 분위기.' },
-      { label: '주요 특징', value: '창백하리만큼 맑은 피부와 정교한 이목구비, 빛을 받은 성상처럼 고요하고 압도적인 얼굴. 허리 아래까지 흐르는 긴 은백색 머리카락, 연한 회색에 가까운 눈동자. 눈매는 차갑지만 아름답고 표정은 늘 평온해 보여 오히려 쉽게 다가갈 수 없다.' },
-      { label: '복장', value: '흰색과 금색이 섞인 차이나 칼라 제복에 긴 망토, 제복 모자. 왼쪽 허벅지 가터, 하얀 하이힐.' },
-    ],
-    tmi: [
-      { label: '성장 배경', value: '어릴 적 부모님이 성당에 버리고 간 이후 쭉 성직자의 길을 걸었다. 수녀원에서 성인이 지난 이후까지 지냈지만 실은 신 따윈 하나도 믿지 않는 무신론자에 가깝다.' },
-      { label: '가면', value: '온순하고 고분고분한 척은 가이드로 각성한 이후 베일을 걷어내듯 내다 버렸다.' },
-      { label: '고지식한 순정파', value: '꽤나 불성실하고 신성모독을 일삼는 인생을 살았지만 그럼에도 문란한 사람들은 싫어한다. 고지식하지만 알고 보면 순정파.' },
-    ],
-    log: '',
-    teamLabel: 'R.S.T. — Rampage Suppression Team',
-    team: rst,
-  }
-};
-
-function memberCard(m) {
-  var avatarInner = m.img
-    ? '<img src="' + m.img + '" style="width:100%;height:100%;object-fit:cover;border-radius:var(--border-radius-md);">'
-    : '<i class="ti ti-user" aria-hidden="true"></i>';
-  return '<div class="member-card"><div class="member-avatar">' + avatarInner + '</div>' +
-    '<div class="member-info"><div class="member-name">' + m.name + '</div>' +
-    '<span class="member-attr" data-attr="' + m.attr + '">' + m.attr + '</span>' +
-    '<div class="member-desc">' + m.desc + '</div></div></div>';
-}
-
-function renderTeam() {
-  var slot = document.getElementById('member-slot');
-  if (!slot) return;
-  slot.innerHTML = memberCard(data[current].team[teamIdx]);
-  document.querySelectorAll('.team-dot').forEach(function(dot, i) {
-    dot.className = 'team-dot' + (i === teamIdx ? ' active' : '');
-  });
-}
-
-function teamPrev() { var d = data[current]; teamIdx = (teamIdx - 1 + d.team.length) % d.team.length; renderTeam(); }
-function teamNext() { var d = data[current]; teamIdx = (teamIdx + 1) % d.team.length; renderTeam(); }
-
-function buildContent(key) {
-  var d = data[key];
-  var infos = d.infos.map(function(i) {
-    return '<div class="info-item"><div class="info-label">' + i.label + '</div><div class="info-value">' + i.value + '</div></div>';
-  }).join('');
-  var abilities = d.abilities.map(function(a) {
-    return '<div class="ability-block"><strong>' + a.label + '</strong>' + a.desc + '</div>';
-  }).join('');
-  var visuals = d.visual.map(function(v) {
-    return '<div class="tmi-block"><div class="tmi-label">' + v.label + '</div><div class="tmi-value">' + v.value + '</div></div>';
-  }).join('');
-  var tmis = d.tmi.map(function(t) {
-    return '<div class="tmi-block"><div class="tmi-label">' + t.label + '</div><div class="tmi-value">' + t.value + '</div></div>';
-  }).join('');
-  var noteItems = d.notes.map(function(n) { return '<li>' + n + '</li>'; }).join('');
-  var dots = d.team.map(function(_, i) {
-    return '<div class="team-dot' + (i === 0 ? ' active' : '') + '"></div>';
-  }).join('');
-
-  var archiveSection = '';
-  if (d.visual.length || d.tmi.length || d.notes.length || d.log) {
-    archiveSection += '<div class="divider"></div>';
-    if (d.visual.length) archiveSection += '<div class="section-title">Visual Profile</div>' + visuals;
-    if (d.tmi.length) archiveSection += '<div class="section-title">TMI</div>' + tmis;
-    if (d.notes.length) archiveSection += '<div class="section-title">Notes</div><ul class="note-list">' + noteItems + '</ul>';
-    if (d.log) archiveSection += '<div class="section-title" style="margin-top:1.25rem;">Background Log</div><div class="log-block">' + d.log + '</div>';
-  }
-
-  return '<div class="section-title">Attribute</div>' +
-    '<div class="attr-tag"><i class="ti ' + d.attrIcon + '" aria-hidden="true"></i>' + d.attrLabel + '</div>' +
-    '<div class="section-title">Profile</div>' +
-    '<div class="info-grid">' + infos + '</div>' +
-    '<div class="divider"></div>' +
-    '<div class="section-title">Official Evaluation</div>' +
-    '<div class="desc-block">' + d.eval + '</div>' +
-    '<div class="section-title" style="margin-top:1rem;">Personality</div>' +
-    '<div class="desc-block">' + d.personality + '</div>' +
-    '<div class="divider"></div>' +
-    '<div class="section-title">Ability & Gear</div>' + abilities +
-    archiveSection +
-    '<div class="divider"></div>' +
-    '<div class="team-section-header"><div class="team-label">' + d.teamLabel + '</div>' +
-    '<div class="team-nav"><button onclick="teamPrev()" aria-label="prev"><i class="ti ti-chevron-left"></i></button>' +
-    '<button onclick="teamNext()" aria-label="next"><i class="ti ti-chevron-right"></i></button></div></div>' +
-    '<div id="member-slot"></div>' +
-    '<div class="team-dots">' + dots + '</div>';
-}
-
-function updateHeartBtns(key) {
-  document.getElementById('btn-syndrome').className = 'heart-btn' + (key === 'syndrome' ? ' active' : '');
-  document.getElementById('btn-seraph').className = 'heart-btn' + (key === 'seraph' ? ' active' : '');
-}
-
-function render(key) {
-  var d = data[key];
-  teamIdx = 0;
-  document.getElementById('wiki').className = 'wiki-wrap ' + d.theme;
-  document.getElementById('standing-img-el').src = STANDING_IMG[key];
-  document.getElementById('char-badge').textContent = d.badge;
-  document.getElementById('char-name-panel').textContent = d.name;
-  document.getElementById('char-codename').textContent = d.codename;
-  document.getElementById('wiki-title').textContent = d.name;
-  updateHeartBtns(key);
-  document.getElementById('scroll-area').scrollTop = 0;
-  document.getElementById('wiki-content').innerHTML = buildContent(key);
-  renderTeam();
-}
-
-function switchTo(key) {
-  if (current === key) return;
-  current = key;
-  render(current);
-}
-
-
-var params = new URLSearchParams(window.location.search);
-var initial = params.get('char') === 'seraph' ? 'seraph' : 'syndrome';
-current = initial;
-render(initial);
 </script>
 
 <script src="sparkle.js"></script>

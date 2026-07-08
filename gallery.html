@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Synapse — Gallery</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
@@ -257,9 +257,7 @@ var base = 'https://raw.githubusercontent.com/end-of-eden/Synapse/main/img/galle
 function render() {
   var grid = document.getElementById('gallery-grid');
   grid.innerHTML = images.map(function(img, i) {
-    return '<div class="gallery-item" onclick="openPopup(' + i + ')"' +
-      ' onmouseover="this.querySelector(\'.gallery-item-title\').style.color=\'' + img.color + '\'"' +
-      ' onmouseout="this.querySelector(\'.gallery-item-title\').style.color=\'rgba(0,0,0,0)\'">' +
+    return '<div class="gallery-item" onclick="openPopup(' + i + ')">' +
       '<img src="' + base + img.src + '" alt="' + img.title + '" loading="lazy">' +
       '<div class="gallery-item-overlay">' +
       '<div class="gallery-item-title">' + img.title + '</div>' +

@@ -152,6 +152,16 @@ body {
   transition: color 0.15s;
 }
 .back-btn:hover { color: var(--color-text-secondary); }
+
+.detail-photo {
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  border-radius: var(--border-radius-lg);
+  border: 0.5px solid var(--color-border-tertiary);
+  margin-bottom: 1.5rem;
+  display: block;
+}
 </style>
 </head>
 <body>
@@ -177,6 +187,8 @@ body {
   <div class="detail-scroll" id="detail-scroll">
 
     <a class="back-btn" href="../log.html">← Back</a>
+
+    <img class="detail-photo" src="https://raw.githubusercontent.com/end-of-eden/Synapse/main/img/log/003.jpg" alt="">
 
     <div class="detail-title">디저트 오픈런</div>
     <div class="detail-meta">
